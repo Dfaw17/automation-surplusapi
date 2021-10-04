@@ -1,0 +1,1 @@
+py -m pytest -v -p no:cacheprovider .\1Merchant\Auth\test_login.py
