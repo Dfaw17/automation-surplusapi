@@ -6,20 +6,10 @@ from assertpy import assert_that
 sys.path.append('.../IntegrationTest')
 
 
-def var_login():
-    param = {
-        "email": settings.email_merchant,
-        "password": settings.pwd_merchant
-    }
-
-    login = requests.post(settings.url_login_merchant, data=param, headers={'Accept': 'application/json'})
-    return login
-
-
 class TestLogout:
 
     def test_logout_normal(self):
-        token = var_login().json().get("token")
+        token = settings.login_merchant().json().get("token")
         param = {
             "token": token
         }
