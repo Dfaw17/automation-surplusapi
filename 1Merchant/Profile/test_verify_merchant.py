@@ -2,7 +2,6 @@ import sys
 import requests
 import settings
 from assertpy import assert_that
-import warnings
 
 sys.path.append('.../IntegrationTest')
 
@@ -29,4 +28,3 @@ class TestVerifyMerchant:
         assert validate_status_verify_request_id == 3
 
         settings.var_reject_verify_merchant()
-        warnings.filterwarnings("ignore", category=DeprecationWarning)
