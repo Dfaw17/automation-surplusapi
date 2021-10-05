@@ -15,3 +15,4 @@ pwd_kurang_char = "123"
 
 # URL MERCHANT
 url_login_merchant = f"{use_env}/api/v2/merchant/auth/login"
+url_logout_merchant = f"{use_env}/api/v2/merchant/auth/logout"
