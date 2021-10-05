@@ -25,6 +25,7 @@ url_reset_pwd_merchant = f"{use_env}/api/v2/merchant/auth/password-reset"
 url_show_profile_merchant = f"{use_env}/api/v2/merchant/profiles"
 url_verify_merchant = f"{use_env}/api/v2/merchant/verify-request"
 url_get_all_category_merchant = f"{use_env}/api/v2/merchant/categories"
+url_get_all_merchant_menu_merchant = f"{use_env}/api/v2/merchant/menus/"
 
 # DATABASE
 mydb = mysql.connector.connect(
