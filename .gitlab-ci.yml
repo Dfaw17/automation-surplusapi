@@ -12,7 +12,7 @@ integration-test-job:
   stage: Test
   script:
     - echo "Preparing test"
-    - python -m pytest -v -p no:cacheprovider no:warnings
+    - python -m pytest -v -p no:cacheprovider,warnings
     - echo "Finish"
 
 
