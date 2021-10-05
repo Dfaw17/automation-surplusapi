@@ -63,10 +63,10 @@ class TestPasswordReset:
 
         data = response.json()
         validate_status = data.get("success")
-        validate_message = data.get("message")
+        validate_message = data.get("message")['email']
         assert validate_status == bool(False)
-        assert response.status_code == 404
-        assert "Kami tidak menemukan merchant dengan e-mail" in validate_message
+        assert response.status_code == 422
+        assert "email harus merupakan alamat email yang valid." in validate_message
 
     def test_reset_password_email_empty(self):
         param = {
