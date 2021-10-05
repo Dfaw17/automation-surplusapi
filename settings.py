@@ -1,6 +1,5 @@
 import requests
 import mysql.connector
-import warnings
 
 # ENVIRONTMENT
 production = "https://adminsurplus.net"
@@ -51,7 +50,6 @@ def var_reject_verify_merchant():
     query.execute(f'UPDATE verify_requests SET status_verify_request_id=2 WHERE id={id}')
     mydb.commit()
     print(query.rowcount, "record(s) affected")
-    warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 
 # HEADER SETTING
