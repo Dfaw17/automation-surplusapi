@@ -46,6 +46,13 @@ def var_login_merchant():
 
     login = requests.post(url_login_merchant, data=param, headers={'Accept': 'application/json'})
     return login
+
+
+def var_list_menu_merchant():
+    list_menu = requests.get(url_get_all_merchant_menu_merchant, headers=header_with_token_merchant)
+    return list_menu
+
+
 def var_reject_verify_merchant():
     query.execute('SELECT `id` FROM verify_requests where merchant_id = 10269 ORDER BY id DESC LIMIT 1')
     id = int(query.fetchone()[0])
@@ -56,5 +63,5 @@ def var_reject_verify_merchant():
 
 # HEADER SETTING
 header_with_token_merchant = {"Authorization": f"Bearer {var_login_merchant().json().get('token')}","Accept": "application/json"}
-header_without_token_merchant = {"Authorization": f"Bearer ","Accept": "application/json"}
-header_wrong_token_merchant = {"Authorization": f"Bearer {wrong_token_merchant}","Accept": "application/json"}
+header_without_token_merchant = {"Authorization": f"Bearer ", "Accept": "application/json"}
+header_wrong_token_merchant = {"Authorization": f"Bearer {wrong_token_merchant}", "Accept": "application/json"}
