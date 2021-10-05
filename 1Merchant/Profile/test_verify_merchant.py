@@ -13,8 +13,11 @@ class TestVerifyMerchant:
             "certifications[certifications][0][certification_id]": 1,
             "certifications[certifications][0][name]": 'null',
         }
+        file = {
+            'certifications[images][0]': open("img/telkomsel.png", 'rb')
+        }
         response = requests.post(settings.url_verify_merchant, data=param, headers=settings.header_with_token_merchant,
-                                 files={'certifications[images][0]': open("img/telkomsel.png", 'rb')})
+                                 files=file)
         data = response.json()
         validate_status = data.get('success')
         validate_message = data.get('message')
