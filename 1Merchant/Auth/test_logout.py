@@ -1,4 +1,6 @@
 import sys
+import time
+
 import requests
 import settings
 from assertpy import assert_that
@@ -10,6 +12,7 @@ class TestLogout:
 
     def test_logout_normal(self):
         token = settings.var_login_merchant().json().get("token")
+        time.sleep(1)
         param = {
             "token": token
         }
