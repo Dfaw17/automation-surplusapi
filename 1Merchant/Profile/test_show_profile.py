@@ -9,7 +9,7 @@ sys.path.append('.../IntegrationTest')
 class TestShowProfile:
 
     def test_show_profile_normal(self):
-        token = settings.login_merchant().json().get("token")
+        token = settings.var_login_merchant().json().get("token")
         headers = {
             "Accept": "application/json",
             "Authorization": f"Bearer {token}"

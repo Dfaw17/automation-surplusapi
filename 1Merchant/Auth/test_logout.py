@@ -9,7 +9,7 @@ sys.path.append('.../IntegrationTest')
 class TestLogout:
 
     def test_logout_normal(self):
-        token = settings.login_merchant().json().get("token")
+        token = settings.var_login_merchant().json().get("token")
         param = {
             "token": token
         }
