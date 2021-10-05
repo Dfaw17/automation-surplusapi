@@ -1,7 +1,5 @@
 import requests
 import mysql.connector
-import warnings
-warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 # ENVIRONTMENT
 production = "https://adminsurplus.net"
