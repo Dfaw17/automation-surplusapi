@@ -4,6 +4,7 @@ import sys
 import settings
 sys.path.append('.../IntegrationTest')
 
+
 # ================================================================================================
 # token = settings.var_login_merchant().json().get("token")
 # param = {
