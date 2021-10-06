@@ -1,1 +1,1 @@
-py -m pytest -v -p no:cacheprovider .\1Merchant\Auth\test_login.py
+python -m pytest -v -p no:cacheprovider --disable-pytest-warnings .\1Merchant\Menu\test_show_merchant_menu.py

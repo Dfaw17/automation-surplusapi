@@ -1,5 +1,13 @@
 import requests
 import mysql.connector
+# DATABASE
+mydb = mysql.connector.connect(
+    host="aa93f9gb1m7iap.clslftpx6d63.ap-southeast-1.rds.amazonaws.com",
+    user="root",
+    password="rahasia0502",
+    database="ebdb"
+)
+query = mydb.cursor()
 
 # ENVIRONTMENT
 production = "https://adminsurplus.net"
@@ -17,6 +25,15 @@ email_merchant_not_regist = "sdet999@gmail.com"
 pwd_merchant_wrong = "000000000"
 pwd_kurang_char = "123"
 wrong_token_merchant = "AAAAABBBBCCCCDDDD"
+nama_makanan = "Cessin"
+merchant_kategori_sayur = 5
+merchant_kategori_non_sayur = 1
+deskripsi = "Cessin Meikarta"
+harga_asli = 20000
+harga_jual = 10000
+status_halal = 0
+weight = 200
+weight_string = "1 Mangkok"
 
 # URL MERCHANT
 url_login_merchant = f"{use_env}/api/v2/merchant/auth/login"
@@ -26,16 +43,7 @@ url_show_profile_merchant = f"{use_env}/api/v2/merchant/profiles"
 url_verify_merchant = f"{use_env}/api/v2/merchant/verify-request"
 url_get_all_category_merchant = f"{use_env}/api/v2/merchant/categories"
 url_get_all_merchant_menu_merchant = f"{use_env}/api/v2/merchant/menus/"
-
-# DATABASE
-mydb = mysql.connector.connect(
-    host="aa93f9gb1m7iap.clslftpx6d63.ap-southeast-1.rds.amazonaws.com",
-    user="root",
-    password="rahasia0502",
-    database="ebdb"
-)
-query = mydb.cursor()
-
+url_insert_menu_merchant = f"{use_env}/api/v2/merchant/menus"
 
 # VARIABLE
 def var_login_merchant():
