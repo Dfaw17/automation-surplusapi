@@ -9,7 +9,7 @@ sys.path.append('.../IntegrationTest')
 # ================================================================================================
 param = {
     "is_tomorrow": "0",
-    "stock": "100",
+    "stock": 100,
     "waktu_mulai_penjemputan": "01:00",
     "waktu_akhir_penjemputan": "23:00",
     'expired_date': '2023-12-12'
