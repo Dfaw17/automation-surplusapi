@@ -7,9 +7,8 @@ from pprint import pprint
 sys.path.append('.../IntegrationTest')
 
 # ================================================================================================
-response = requests.patch(settings.url_set_inactive_menu_merchant + str(
-    settings.var_list_menu_merchant().json().get('data')[0]['id']) + "/inactive",
-                          headers=settings.header_without_token_merchant)
+response = requests.delete(settings.url_delete_menu_merchant + str(
+            settings.var_list_menu_merchant().json().get('data')[0]['id']), headers=settings.header_wrong_token_merchant)
 data = response.json()
 pprint(data)
 # ================================================================================================
