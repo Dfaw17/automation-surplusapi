@@ -46,6 +46,7 @@ url_get_all_merchant_menu_merchant = f"{use_env}/api/v2/merchant/menus/"
 url_insert_menu_merchant = f"{use_env}/api/v2/merchant/menus"
 url_update_menu_merchant = f"{use_env}/api/v2/merchant/menus/"
 url_set_active_menu_merchant = f"{use_env}/api/v2/merchant/menus/"
+url_set_inactive_menu_merchant = f"{use_env}/api/v2/merchant/menus/"
 
 # VARIABLE
 def var_login_merchant():

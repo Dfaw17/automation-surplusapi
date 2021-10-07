@@ -3,21 +3,13 @@ import requests
 import sys
 import settings
 from pprint import pprint
+
 sys.path.append('.../IntegrationTest')
 
-
 # ================================================================================================
-param = {
-    "is_tomorrow": "0",
-    "stock": "100",
-    "waktu_mulai_penjemputan": "01:00",
-    "waktu_akhir_penjemputan": "23:00",
-    'expired_date': 'aaa'
-}
-
-response = requests.patch(settings.url_set_active_menu_merchant + str(
-            settings.var_list_menu_merchant().json().get('data')[0]['id']) + "/active", data=param,
-                          headers=settings.header_with_token_merchant)
+response = requests.patch(settings.url_set_inactive_menu_merchant + str(
+    settings.var_list_menu_merchant().json().get('data')[0]['id']) + "/inactive",
+                          headers=settings.header_without_token_merchant)
 data = response.json()
 pprint(data)
 # ================================================================================================
