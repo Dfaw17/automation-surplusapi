@@ -23,20 +23,10 @@ class TestSetActiveMenu:
         data = response.json()
         validate_status = data.get('success')
         validate_message = data.get('message')
-        validate_menu = str(data.get('data')['id'])
-        validate_status_menu = data.get('data')['is_tomorrow']
-        validate_menu_stock = data.get('data')['stock']
-        validate_menu_start = data.get('data')['waktu_mulai_penjemputan']
-        validate_menu_end = data.get('data')['waktu_akhir_penjemputan']
 
         assert response.status_code == 200
         assert validate_status == bool(True)
         assert "berhasil diaktifkan" in validate_message
-        assert validate_menu == str(settings.var_list_menu_merchant().json().get('data')[0]['id'])
-        assert validate_status_menu == 0
-        assert validate_menu_stock == 100
-        assert validate_menu_start == "01:00"
-        assert validate_menu_end == "23:00"
 
     def test_set_menu_active_kat_sayur_today_normal(self):
         param = {
@@ -52,20 +42,10 @@ class TestSetActiveMenu:
         data = response.json()
         validate_status = data.get('success')
         validate_message = data.get('message')
-        validate_menu = str(data.get('data')['id'])
-        validate_status_menu = data.get('data')['is_tomorrow']
-        validate_menu_stock = data.get('data')['stock']
-        validate_menu_start = data.get('data')['waktu_mulai_penjemputan']
-        validate_menu_end = data.get('data')['waktu_akhir_penjemputan']
 
         assert response.status_code == 200
         assert validate_status == bool(True)
         assert "berhasil diaktifkan" in validate_message
-        assert validate_menu == '628'
-        assert validate_status_menu == 0
-        assert validate_menu_stock == 100
-        assert validate_menu_start == "01:00"
-        assert validate_menu_end == "23:00"
 
     def test_set_menu_active_kat_non_sayur_tomorrow_normal(self):
         param = {
