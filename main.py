@@ -2,20 +2,24 @@ import mysql.connector
 import requests
 import sys
 import settings
+from pprint import pprint
 sys.path.append('.../IntegrationTest')
 
 
 # ================================================================================================
-# token = settings.var_login_merchant().json().get("token")
-# param = {
-#     "certifications[certifications][0][certification_id]": 1,
-#     "certifications[certifications][0][name]": 'null',
-# }
-# response = requests.post(settings.url_verify_merchant, data=param, headers={"Authorization": f"Bearer {token}","Accept": "application/json"}, files={
-#     'certifications[images][0]': open("img/telkomsel.png", 'rb'),
-# })
-# data = response.json()
-# print(data)
+param = {
+    "is_tomorrow": "0",
+    "stock": "100",
+    "waktu_mulai_penjemputan": "01:00",
+    "waktu_akhir_penjemputan": "23:00",
+    'expired_date': 'aaa'
+}
+
+response = requests.patch(settings.url_set_active_menu_merchant + str(
+            settings.var_list_menu_merchant().json().get('data')[0]['id']) + "/active", data=param,
+                          headers=settings.header_with_token_merchant)
+data = response.json()
+pprint(data)
 # ================================================================================================
 # mydb = mysql.connector.connect(
 #     host="aa93f9gb1m7iap.clslftpx6d63.ap-southeast-1.rds.amazonaws.com",
