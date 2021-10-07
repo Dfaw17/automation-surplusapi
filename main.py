@@ -7,8 +7,17 @@ from pprint import pprint
 sys.path.append('.../IntegrationTest')
 
 # ================================================================================================
-response = requests.delete(settings.url_delete_menu_merchant + str(
-            settings.var_list_menu_merchant().json().get('data')[0]['id']), headers=settings.header_wrong_token_merchant)
+param = {
+    "is_tomorrow": "0",
+    "stock": "100",
+    "waktu_mulai_penjemputan": "01:00",
+    "waktu_akhir_penjemputan": "23:00",
+    'expired_date': '2023-12-12'
+}
+
+response = requests.patch(settings.url_set_active_menu_merchant + str(
+    settings.var_list_menu_merchant().json().get('data')[0]['id']) + "/active", data=param,
+                          headers=settings.header_with_token_merchant)
 data = response.json()
 pprint(data)
 # ================================================================================================
