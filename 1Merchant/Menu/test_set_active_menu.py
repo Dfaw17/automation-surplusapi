@@ -333,12 +333,12 @@ class TestSetActiveMenu:
             'expired_date': '2023-12-12'
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + "99999", data=param,headers=settings.header_with_token_merchant)
+        response = requests.patch(settings.url_set_active_menu_merchant + "999/active", data=param,headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get('success')
         validate_message = data.get('message')
 
-        assert response.status_code == 403
+        assert response.status_code == 404
         assert validate_status == bool(False)
         assert "Menu tidak ditemukan" in validate_message
 
