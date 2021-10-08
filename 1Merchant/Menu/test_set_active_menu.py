@@ -338,7 +338,7 @@ class TestSetActiveMenu:
         validate_status = data.get('success')
         validate_message = data.get('message')
 
-        assert response.status_code == 404
+        assert response.status_code == 403
         assert validate_status == bool(False)
         assert "Menu tidak ditemukan" in validate_message
 
