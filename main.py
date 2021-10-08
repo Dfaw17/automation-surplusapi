@@ -8,16 +8,12 @@ sys.path.append('.../IntegrationTest')
 
 # ================================================================================================
 param = {
-    "is_tomorrow": "0",
-    "stock": 100,
-    "waktu_mulai_penjemputan": "01:00",
-    "waktu_akhir_penjemputan": "23:00",
-    'expired_date': '2023-12-12'
+    "filter_by":"custom",
+    "start_date": "2019-04-01",
+    "end_date": "2022-04-01"
 }
-
-response = requests.patch(settings.url_set_active_menu_merchant + str(
-    settings.var_list_menu_merchant().json().get('data')[0]['id']) + "/active", data=param,
-                          headers=settings.header_with_token_merchant)
+response = requests.get(settings.url_history_income_merchant, params=param,
+                        headers=settings.header_with_token_merchant)
 data = response.json()
 pprint(data)
 # ================================================================================================

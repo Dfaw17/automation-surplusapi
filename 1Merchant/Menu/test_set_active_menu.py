@@ -9,6 +9,7 @@ sys.path.append('.../IntegrationTest')
 class TestSetActiveMenu:
 
     def test_set_menu_active_kat_non_sayur_today_normal(self):
+        header = {"Authorization": f"Bearer {settings.var_login_merchant().json().get('token')}","Accept": "application/json"}
         param = {
             "is_tomorrow": "0",
             "stock": "100",
@@ -19,7 +20,7 @@ class TestSetActiveMenu:
 
         response = requests.patch(settings.url_set_active_menu_merchant + str(
             settings.var_list_menu_merchant().json().get('data')[0]['id']) + "/active", data=param,
-                                  headers=settings.header_with_token_merchant)
+                                  headers=header)
         data = response.json()
         validate_status = data.get('success')
         validate_message = data.get('message')
