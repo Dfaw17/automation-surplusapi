@@ -51,6 +51,7 @@ url_set_inactive_menu_merchant = f"{use_env}/api/v2/merchant/menus/"
 url_delete_menu_merchant = f"{use_env}/api/v2/merchant/menus/"
 url_index_order_merchant = f"{use_env}/api/v2/merchant/orders"
 url_show_order_merchant = f"{use_env}/api/v2/merchant/orders/"
+url_history_trx_merchant = f"{use_env}/api/v2/merchant/reports/transaction-history"
 
 
 # VARIABLE
