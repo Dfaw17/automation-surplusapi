@@ -53,6 +53,7 @@ url_index_order_merchant = f"{use_env}/api/v2/merchant/orders"
 url_show_order_merchant = f"{use_env}/api/v2/merchant/orders/"
 url_history_trx_merchant = f"{use_env}/api/v2/merchant/reports/transaction-history"
 url_history_income_merchant = f"{use_env}/api/v2/merchant/reports/income-history"
+url_branch_merchant = f"{use_env}/api/v2/merchant/branches"
 
 
 # VARIABLE
