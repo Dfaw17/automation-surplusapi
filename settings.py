@@ -1,5 +1,6 @@
 import requests
 import mysql.connector
+
 # DATABASE
 mydb = mysql.connector.connect(
     host="aa93f9gb1m7iap.clslftpx6d63.ap-southeast-1.rds.amazonaws.com",
@@ -49,6 +50,8 @@ url_set_active_menu_merchant = f"{use_env}/api/v2/merchant/menus/"
 url_set_inactive_menu_merchant = f"{use_env}/api/v2/merchant/menus/"
 url_delete_menu_merchant = f"{use_env}/api/v2/merchant/menus/"
 url_index_order_merchant = f"{use_env}/api/v2/merchant/orders"
+url_show_order_merchant = f"{use_env}/api/v2/merchant/orders/"
+
 
 # VARIABLE
 def var_login_merchant():
@@ -66,6 +69,11 @@ def var_list_menu_merchant():
     return list_menu
 
 
+def var_list_order_merchant():
+    order = requests.get(url_index_order_merchant + '?type=finish',headers=header_with_token_merchant)
+    return order
+
+
 def var_reject_verify_merchant():
     query.execute('SELECT `id` FROM verify_requests where merchant_id = 10269 ORDER BY id DESC LIMIT 1')
     id = int(query.fetchone()[0])
@@ -75,6 +83,7 @@ def var_reject_verify_merchant():
 
 
 # HEADER SETTING
-header_with_token_merchant = {"Authorization": f"Bearer {var_login_merchant().json().get('token')}","Accept": "application/json"}
+header_with_token_merchant = {"Authorization": f"Bearer {var_login_merchant().json().get('token')}",
+                              "Accept": "application/json"}
 header_without_token_merchant = {"Authorization": f"Bearer ", "Accept": "application/json"}
 header_wrong_token_merchant = {"Authorization": f"Bearer {wrong_token_merchant}", "Accept": "application/json"}
