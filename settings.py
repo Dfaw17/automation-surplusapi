@@ -70,7 +70,7 @@ def var_list_menu_merchant():
 
 
 def var_list_order_merchant():
-    order = requests.get(url_index_order_merchant + '?type=finish',headers=header_with_token_merchant)
+    order = requests.get(url_index_order_merchant + '?type=finish', headers=header_with_token_merchant)
     return order
 
 
@@ -83,7 +83,6 @@ def var_reject_verify_merchant():
 
 
 # HEADER SETTING
-header_with_token_merchant = {"Authorization": f"Bearer {var_login_merchant().json().get('token')}",
-                              "Accept": "application/json"}
+header_with_token_merchant = {"Authorization": f"Bearer {var_login_merchant().json().get('token')}","Accept": "application/json"}
 header_without_token_merchant = {"Authorization": f"Bearer ", "Accept": "application/json"}
 header_wrong_token_merchant = {"Authorization": f"Bearer {wrong_token_merchant}", "Accept": "application/json"}
