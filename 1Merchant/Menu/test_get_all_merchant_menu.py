@@ -19,7 +19,7 @@ class TestGetAllMerchantMenu:
         assert response.status_code == 200
         assert validate_status == bool(True)
         assert "Data menu berhasil ditemukan." in validate_message
-        assert_that(validate_data).contains_only('id', 'nama_menu_makanan', 'merchant_kategori_makanan_id',
+        assert_that(validate_data).contains('id', 'nama_menu_makanan', 'merchant_kategori_makanan_id',
                                                  'is_exclusive', 'deskripsi', 'harga_asli', 'harga_jual',
                                                  'is_non_halal', 'weight', 'weight_string', 'image_thumbnail',
                                                  'created_at', 'updated_at', 'stock_id', 'merchant_id',

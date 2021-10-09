@@ -8,12 +8,13 @@ sys.path.append('.../IntegrationTest')
 
 # ================================================================================================
 param = {
-    "filter_by":"custom",
-    "start_date": "2019-04-01",
-    "end_date": "2022-04-01"
+    "max_active_date": "2022-09-09",
+    "waktu_mulai_penjemputan": "00:30",
+    "waktu_akhir_penjemputan": "23:00"
 }
-response = requests.get(settings.url_history_income_merchant, params=param,
-                        headers=settings.header_with_token_merchant)
+
+response = requests.patch(settings.url_set_active_menu_merchant + "554" + "/partial", data=param,
+                          headers=settings.header_branch)
 data = response.json()
 pprint(data)
 # ================================================================================================

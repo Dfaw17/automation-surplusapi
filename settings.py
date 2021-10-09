@@ -18,6 +18,7 @@ use_env = sandbox
 
 # ACCOUNT MERCHANT
 email_merchant = "jangandipakai1@gmail.com"
+email_merchant_branch = "jangandipakai2@gmail.com"
 email_merchant_freeze = "jangandipakai3@gmail.com"
 email_merchant_without_at = "jangandipakai1gmail.com"
 email_merchant_space = "jangan di pakai1@gmail.com"
@@ -68,6 +69,16 @@ def var_login_merchant():
     return login
 
 
+def var_login_merchant_branch():
+    param = {
+        "email": email_merchant_branch,
+        "password": pwd_merchant
+    }
+
+    login = requests.post(url_login_merchant, data=param, headers={'Accept': 'application/json'})
+    return login
+
+
 def var_list_menu_merchant():
     list_menu = requests.get(url_get_all_merchant_menu_merchant, headers=header_with_token_merchant)
     return list_menu
@@ -88,5 +99,6 @@ def var_reject_verify_merchant():
 
 # HEADER SETTING
 header_with_token_merchant = {"Authorization": f"Bearer {var_login_merchant().json().get('token')}","Accept": "application/json"}
+header_branch= {"Authorization": f"Bearer {var_login_merchant_branch().json().get('token')}","Accept": "application/json"}
 header_without_token_merchant = {"Authorization": f"Bearer ", "Accept": "application/json"}
 header_wrong_token_merchant = {"Authorization": f"Bearer {wrong_token_merchant}", "Accept": "application/json"}
