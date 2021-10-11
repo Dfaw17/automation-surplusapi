@@ -110,7 +110,7 @@ class TestBranchGeneral:
             'expired_date': '2023-12-12'
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + settings.menu_non_sayur + "/active", data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + '744' + "/active", data=param,
                                   headers=settings.header_branch)
         data = response.json()
         validate_status = data.get('success')
@@ -126,7 +126,7 @@ class TestBranchGeneral:
             "stock": "777",
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + settings.menu_non_sayur + "/partial", data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + '744' + "/partial", data=param,
                                   headers=settings.header_branch)
         data = response.json()
         validate_status = data.get('success')
@@ -144,7 +144,7 @@ class TestBranchGeneral:
             "waktu_akhir_penjemputan": "23:00"
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + settings.menu_non_sayur + "/partial", data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + '744' + "/partial", data=param,
                                   headers=settings.header_branch)
         data = response.json()
         validate_status = data.get('success')

@@ -36,7 +36,10 @@ harga_jual = 10000
 status_halal = 0
 weight = 200
 weight_string = "1 Mangkok"
-
+menu_sayur = '628'
+menu_non_sayur = '731'
+merchant_central = '10269'
+merchant_branch = '10270'
 # URL MERCHANT
 url_login_merchant = f"{use_env}/api/v2/merchant/auth/login"
 url_logout_merchant = f"{use_env}/api/v2/merchant/auth/logout"
@@ -56,11 +59,7 @@ url_history_trx_merchant = f"{use_env}/api/v2/merchant/reports/transaction-histo
 url_history_income_merchant = f"{use_env}/api/v2/merchant/reports/income-history"
 url_branch_merchant = f"{use_env}/api/v2/merchant/branches"
 url_outlet_rating_merchant = f"{use_env}/api/v2/merchant/reports/outlet-rating"
-menu_sayur = '628'
-menu_non_sayur = '731'
-merchant_central = '10269'
-merchant_branch = '10270'
-
+url_available_menu_merchant = f"{use_env}/api/v2/merchant/menus/available"
 
 # VARIABLE
 def var_login_merchant():
