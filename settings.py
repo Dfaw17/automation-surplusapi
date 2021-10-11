@@ -1,5 +1,6 @@
 import requests
 import mysql.connector
+from datetime import *
 
 # DATABASE
 mydb = mysql.connector.connect(
@@ -40,6 +41,12 @@ menu_sayur = '628'
 menu_non_sayur = '731'
 merchant_central = '10269'
 merchant_branch = '10270'
+now = datetime.today().strftime('%Y%m%d')
+today = datetime.today().strftime('%Y-%m-%d')
+calc = datetime.today() + timedelta(days=7)
+seven_days = calc.strftime('%Y-%m-%d')
+
+
 # URL MERCHANT
 url_login_merchant = f"{use_env}/api/v2/merchant/auth/login"
 url_logout_merchant = f"{use_env}/api/v2/merchant/auth/logout"

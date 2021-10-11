@@ -3,15 +3,25 @@ import requests
 import sys
 import settings
 from pprint import pprint
+from datetime import *
 
 sys.path.append('.../IntegrationTest')
 
 # ================================================================================================
-response = requests.put(settings.url_voucher_merchant + '/99999/disable',
-                        headers=settings.header_with_token_merchant)
-
+param = {
+    'title': f'Test Voucher Automation Danger 1 ongkir {settings.now}',
+    'fixed_discount': '3000',
+    'min_purchase': '1000',
+    'max_usage': 3,
+    'start_at': settings.today,
+    'end_at': settings.seven_days,
+    'target_id': 2,
+    'is_branch_joinable': 0,
+}
+response = requests.post(settings.url_voucher_merchant, data=param, headers=settings.header_with_token_merchant)
 data = response.json()
-pprint(data)
+print(data)
+print(response)
 # ================================================================================================
 # mydb = mysql.connector.connect(
 #     host="aa93f9gb1m7iap.clslftpx6d63.ap-southeast-1.rds.amazonaws.com",
