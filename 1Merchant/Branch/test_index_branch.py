@@ -36,7 +36,6 @@ class TestMerchantBranchIndex:
 
         validate_status = branch.json().get('success')
         validate_message = branch.json().get('message')
-        validate_data = branch.json().get('data')
 
         assert branch.status_code == 401
         assert validate_status == bool(False)

@@ -9,7 +9,7 @@ sys.path.append('.../IntegrationTest')
 class TestBranchGeneral:
 
     def test_merchant_central_look_branch_active_menu(self):
-        response = requests.get(settings.url_get_all_merchant_menu_merchant + '?is_active=1&merchant_branch_id=10270',
+        response = requests.get(settings.url_get_all_merchant_menu_merchant + f'?is_active=1&merchant_branch_id={settings.merchant_branch}',
                                 headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get("success")
@@ -20,7 +20,7 @@ class TestBranchGeneral:
         assert "Data menu berhasil ditemukan." in validate_message
 
     def test_merchant_central_look_branch_all_menu(self):
-        response = requests.get(settings.url_get_all_merchant_menu_merchant + '?merchant_branch_id=10270',
+        response = requests.get(settings.url_get_all_merchant_menu_merchant + f'?merchant_branch_id={settings.merchant_branch}',
                                 headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get("success")
@@ -32,7 +32,7 @@ class TestBranchGeneral:
 
     def test_merchnat_central_look_branch_history_trx(self):
         response = requests.get(
-            settings.url_history_trx_merchant + '?merchant_branch_id=10270',
+            settings.url_history_trx_merchant + f'?merchant_branch_id={settings.merchant_branch}',
             headers=settings.header_with_token_merchant)
         data = response.json()
 
@@ -48,7 +48,7 @@ class TestBranchGeneral:
             "filter_by": "custom",
             "start_date": "2019-04-01",
             "end_date": "2022-04-01",
-            "merchant_branch_id": "10270"
+            "merchant_branch_id": f'{settings.merchant_branch}'
         }
         response = requests.get(settings.url_history_income_merchant, params=param,
                                 headers=settings.header_with_token_merchant)
@@ -110,7 +110,7 @@ class TestBranchGeneral:
             'expired_date': '2023-12-12'
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + "554" + "/active", data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + settings.menu_non_sayur + "/active", data=param,
                                   headers=settings.header_branch)
         data = response.json()
         validate_status = data.get('success')
@@ -126,7 +126,7 @@ class TestBranchGeneral:
             "stock": "777",
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + "554" + "/partial", data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + settings.menu_non_sayur + "/partial", data=param,
                                   headers=settings.header_branch)
         data = response.json()
         validate_status = data.get('success')
@@ -144,7 +144,7 @@ class TestBranchGeneral:
             "waktu_akhir_penjemputan": "23:00"
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + "554" + "/partial", data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + settings.menu_non_sayur + "/partial", data=param,
                                   headers=settings.header_branch)
         data = response.json()
         validate_status = data.get('success')
