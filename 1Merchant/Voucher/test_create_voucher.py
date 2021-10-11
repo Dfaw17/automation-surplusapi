@@ -17,7 +17,7 @@ class TestCreateVoucher:
             'start_at': settings.today,
             'end_at': settings.seven_days,
             'target_id': '2',
-            'is_branch_joinable': '0',
+            'is_branch_joinable': '1',
         }
         response = requests.post(settings.url_voucher_merchant, data=param, headers=settings.header_with_token_merchant)
 

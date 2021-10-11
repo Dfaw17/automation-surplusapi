@@ -68,6 +68,7 @@ url_branch_merchant = f"{use_env}/api/v2/merchant/branches"
 url_outlet_rating_merchant = f"{use_env}/api/v2/merchant/reports/outlet-rating"
 url_available_menu_merchant = f"{use_env}/api/v2/merchant/menus/available"
 url_voucher_merchant = f"{use_env}/api/v2/merchant/voucher"
+url_get_voucher_central_merchant = f"{use_env}/api/v2/merchant/voucher-central"
 
 # VARIABLE
 def var_login_merchant():
