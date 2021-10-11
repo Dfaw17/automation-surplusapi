@@ -7,14 +7,9 @@ from pprint import pprint
 sys.path.append('.../IntegrationTest')
 
 # ================================================================================================
-param = {
-    "max_active_date": "2022-09-09",
-    "waktu_mulai_penjemputan": "00:30",
-    "waktu_akhir_penjemputan": "23:00"
-}
+response = requests.put(settings.url_voucher_merchant + '/99999/disable',
+                        headers=settings.header_with_token_merchant)
 
-response = requests.patch(settings.url_set_active_menu_merchant + "554" + "/partial", data=param,
-                          headers=settings.header_branch)
 data = response.json()
 pprint(data)
 # ================================================================================================
