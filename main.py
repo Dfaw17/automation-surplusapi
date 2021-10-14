@@ -9,7 +9,7 @@ sys.path.append('.../IntegrationTest')
 
 # ================================================================================================
 param = {
-    'title': f'Test Voucher Automation Danger 1 ongkir {settings.now}',
+    'title': f'Test Voucherr Automation Danger 1 ongkir {settings.now}',
     'fixed_discount': '3000',
     'min_purchase': '1000',
     'max_usage': 3,
