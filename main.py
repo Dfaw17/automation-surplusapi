@@ -9,19 +9,13 @@ sys.path.append('.../IntegrationTest')
 
 # ================================================================================================
 param = {
-    'title': f'Test Voucherr Automation Danger 1 ongkir {settings.now}',
-    'fixed_discount': '3000',
-    'min_purchase': '1000',
-    'max_usage': 3,
-    'start_at': settings.today,
-    'end_at': settings.seven_days,
-    'target_id': 2,
-    'is_branch_joinable': 0,
+    "email": "halo @gmail.com",
+    "password": settings.kata_sandi,
+    "re-password": settings.kata_sandi
 }
-response = requests.post(settings.url_voucher_merchant, data=param, headers=settings.header_with_token_merchant)
+response = requests.post(settings.url_register_email_customer, data=param, headers={"Accept": "application/json"})
 data = response.json()
 print(data)
-print(response)
 # ================================================================================================
 # mydb = mysql.connector.connect(
 #     host="aa93f9gb1m7iap.clslftpx6d63.ap-southeast-1.rds.amazonaws.com",

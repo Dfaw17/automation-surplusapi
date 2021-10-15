@@ -1,6 +1,8 @@
 import requests
 import mysql.connector
 from datetime import *
+from faker import Faker
+fake = Faker()
 
 # DATABASE
 mydb = mysql.connector.connect(
@@ -45,9 +47,7 @@ now = datetime.today().strftime('%Y%m%d')
 today = datetime.today().strftime('%Y-%m-%d')
 calc = datetime.today() + timedelta(days=7)
 seven_days = calc.strftime('%Y-%m-%d')
-
-
-# URL MERCHANT
+# ---------------------------------------------------------------------------
 url_login_merchant = f"{use_env}/api/v2/merchant/auth/login"
 url_logout_merchant = f"{use_env}/api/v2/merchant/auth/logout"
 url_reset_pwd_merchant = f"{use_env}/api/v2/merchant/auth/password-reset"
@@ -69,6 +69,13 @@ url_outlet_rating_merchant = f"{use_env}/api/v2/merchant/reports/outlet-rating"
 url_available_menu_merchant = f"{use_env}/api/v2/merchant/menus/available"
 url_voucher_merchant = f"{use_env}/api/v2/merchant/voucher"
 url_get_voucher_central_merchant = f"{use_env}/api/v2/merchant/voucher-central"
+
+# ACCOUNT CUSTOMER
+fake_email = fake.email()
+kata_sandi = "12345678"
+email_has_registered = 'kopiruangvirtual@gmail.com'
+# ---------------------------------------------------------------------------
+url_register_email_customer = f"{use_env}/api/v2/customer/auth/register/email"
 
 # VARIABLE
 def var_login_merchant():
