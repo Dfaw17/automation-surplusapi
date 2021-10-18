@@ -86,6 +86,7 @@ url_login_auth_customer = f"{use_env}/api/v2/customer/auth/login/oauth"
 url_login_email_customer = f"{use_env}/api/v2/customer/auth/login/email"
 url_register_progress_customer = f"{use_env}/api/v2/customer/auth/register/progress"
 url_check_email_customer = f"{use_env}/api/v2/customer/auth/register/check-email"
+url_reset_password_customer = f"{use_env}/api/v2/customer/auth/password-reset"
 
 # VARIABLE
 def var_login_merchant():

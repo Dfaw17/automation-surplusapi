@@ -9,15 +9,13 @@ sys.path.append('.../IntegrationTest')
 
 # ================================================================================================
 param = {
-            "is_tomorrow": "0",
-            "stock": "100",
-            "waktu_mulai_penjemputan": "01:00",
-            "waktu_akhir_penjemputan": "23:00",
-            'max_storage_days': '5'
-        }
+    'email': 'kopiruangvirtual gmail.com'
+}
+headers = {
+    "Accept": "application/json"
+}
 
-response = requests.patch(settings.url_set_active_menu_merchant + settings.menu_sayur + "/active", data=param,
-                          headers=settings.header_with_token_merchant)
+response = requests.post(settings.url_reset_password_customer, params=param, headers=headers)
 data = response.json()
 print(data)
 # ================================================================================================
