@@ -9,11 +9,15 @@ sys.path.append('.../IntegrationTest')
 
 # ================================================================================================
 param = {
-    "email": "halo @gmail.com",
-    "password": settings.kata_sandi,
-    "re-password": settings.kata_sandi
-}
-response = requests.post(settings.url_register_email_customer, data=param, headers={"Accept": "application/json"})
+            "is_tomorrow": "0",
+            "stock": "100",
+            "waktu_mulai_penjemputan": "01:00",
+            "waktu_akhir_penjemputan": "23:00",
+            'max_storage_days': '5'
+        }
+
+response = requests.patch(settings.url_set_active_menu_merchant + settings.menu_sayur + "/active", data=param,
+                          headers=settings.header_with_token_merchant)
 data = response.json()
 print(data)
 # ================================================================================================
