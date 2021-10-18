@@ -78,6 +78,7 @@ email_belum_register = 'kopiruangvirtual99@gmail.com'
 email_oauth = "daffafawwazmaulana170901@gmail.com"
 origin_id = "2840811776172986"
 origin = "facebook"
+wrong_token_customer = "AAAAABBBBCCCCDDDD"
 # ---------------------------------------------------------------------------
 url_register_email_customer = f"{use_env}/api/v2/customer/auth/register/email"
 url_register_oauth_customer = f"{use_env}/api/v2/customer/auth/register/oauth"
@@ -87,6 +88,7 @@ url_login_email_customer = f"{use_env}/api/v2/customer/auth/login/email"
 url_register_progress_customer = f"{use_env}/api/v2/customer/auth/register/progress"
 url_check_email_customer = f"{use_env}/api/v2/customer/auth/register/check-email"
 url_reset_password_customer = f"{use_env}/api/v2/customer/auth/password-reset"
+url_logout_customer = f"{use_env}/api/v2/customer/auth/logout"
 
 # VARIABLE
 def var_login_merchant():
