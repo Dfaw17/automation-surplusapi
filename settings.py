@@ -74,6 +74,7 @@ url_get_voucher_central_merchant = f"{use_env}/api/v2/merchant/voucher-central"
 fake_email = fake.email()
 kata_sandi = "12345678"
 email_has_registered = 'kopiruangvirtual@gmail.com'
+email_belum_register = 'kopiruangvirtual99@gmail.com'
 email_oauth = "daffafawwazmaulana170901@gmail.com"
 origin_id = "2840811776172986"
 origin = "facebook"
@@ -84,6 +85,7 @@ url_delete_account_customer = f"{use_env}/api/v2/customer/profiles"
 url_login_auth_customer = f"{use_env}/api/v2/customer/auth/login/oauth"
 url_login_email_customer = f"{use_env}/api/v2/customer/auth/login/email"
 url_register_progress_customer = f"{use_env}/api/v2/customer/auth/register/progress"
+url_check_email_customer = f"{use_env}/api/v2/customer/auth/register/check-email"
 
 # VARIABLE
 def var_login_merchant():
