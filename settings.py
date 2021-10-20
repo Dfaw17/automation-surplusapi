@@ -2,6 +2,7 @@ import requests
 import mysql.connector
 from datetime import *
 from faker import Faker
+
 fake = Faker()
 
 # DATABASE
@@ -92,6 +93,8 @@ url_check_email_customer = f"{use_env}/api/v2/customer/auth/register/check-email
 url_reset_password_customer = f"{use_env}/api/v2/customer/auth/password-reset"
 url_logout_customer = f"{use_env}/api/v2/customer/auth/logout"
 url_discover_customer = f"{use_env}/api/v2/customer/discover"
+url_search_customer = f"{use_env}/api/v2/customer/search"
+
 
 # VARIABLE
 def var_login_customer():
@@ -101,6 +104,7 @@ def var_login_customer():
     }
     login = requests.post(url_login_email_customer, data=param, headers={'Accept': 'application/json'})
     return login
+
 
 def var_login_merchant():
     param = {
@@ -141,11 +145,14 @@ def var_reject_verify_merchant():
 
 
 # HEADER SETTING
-header_with_token_merchant = {"Authorization": f"Bearer {var_login_merchant().json().get('token')}","Accept": "application/json"}
-header_branch= {"Authorization": f"Bearer {var_login_merchant_branch().json().get('token')}","Accept": "application/json"}
+header_with_token_merchant = {"Authorization": f"Bearer {var_login_merchant().json().get('token')}",
+                              "Accept": "application/json"}
+header_branch = {"Authorization": f"Bearer {var_login_merchant_branch().json().get('token')}",
+                 "Accept": "application/json"}
 header_without_token_merchant = {"Authorization": f"Bearer ", "Accept": "application/json"}
 header_wrong_token_merchant = {"Authorization": f"Bearer {wrong_token_merchant}", "Accept": "application/json"}
 
-header_with_token_customer = {"Authorization": f"Bearer {var_login_customer().json().get('token')}","Accept": "application/json"}
+header_with_token_customer = {"Authorization": f"Bearer {var_login_customer().json().get('token')}",
+                              "Accept": "application/json"}
 header_wrong_token_customer = {"Authorization": f"Bearer {wrong_token_customer}", "Accept": "application/json"}
 header_without_token_customer = {"Authorization": f"Bearer ", "Accept": "application/json"}
