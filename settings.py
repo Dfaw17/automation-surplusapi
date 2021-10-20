@@ -79,6 +79,8 @@ email_oauth = "daffafawwazmaulana170901@gmail.com"
 origin_id = "2840811776172986"
 origin = "facebook"
 wrong_token_customer = "AAAAABBBBCCCCDDDD"
+lat = '-6.3823317'
+long = '107.1162607'
 # ---------------------------------------------------------------------------
 url_register_email_customer = f"{use_env}/api/v2/customer/auth/register/email"
 url_register_oauth_customer = f"{use_env}/api/v2/customer/auth/register/oauth"
@@ -89,8 +91,17 @@ url_register_progress_customer = f"{use_env}/api/v2/customer/auth/register/progr
 url_check_email_customer = f"{use_env}/api/v2/customer/auth/register/check-email"
 url_reset_password_customer = f"{use_env}/api/v2/customer/auth/password-reset"
 url_logout_customer = f"{use_env}/api/v2/customer/auth/logout"
+url_discover_customer = f"{use_env}/api/v2/customer/discover"
 
 # VARIABLE
+def var_login_customer():
+    param = {
+        'email': email_has_registered,
+        'password': kata_sandi
+    }
+    login = requests.post(url_login_email_customer, data=param, headers={'Accept': 'application/json'})
+    return login
+
 def var_login_merchant():
     param = {
         "email": email_merchant,
@@ -134,3 +145,7 @@ header_with_token_merchant = {"Authorization": f"Bearer {var_login_merchant().js
 header_branch= {"Authorization": f"Bearer {var_login_merchant_branch().json().get('token')}","Accept": "application/json"}
 header_without_token_merchant = {"Authorization": f"Bearer ", "Accept": "application/json"}
 header_wrong_token_merchant = {"Authorization": f"Bearer {wrong_token_merchant}", "Accept": "application/json"}
+
+header_with_token_customer = {"Authorization": f"Bearer {var_login_customer().json().get('token')}","Accept": "application/json"}
+header_wrong_token_customer = {"Authorization": f"Bearer {wrong_token_customer}", "Accept": "application/json"}
+header_without_token_customer = {"Authorization": f"Bearer ", "Accept": "application/json"}
