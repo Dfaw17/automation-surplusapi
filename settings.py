@@ -94,6 +94,7 @@ url_reset_password_customer = f"{use_env}/api/v2/customer/auth/password-reset"
 url_logout_customer = f"{use_env}/api/v2/customer/auth/logout"
 url_discover_customer = f"{use_env}/api/v2/customer/discover"
 url_search_customer = f"{use_env}/api/v2/customer/search"
+url_show_menu_customer = f"{use_env}/api/v2/customer/menus/"
 
 
 # VARIABLE
@@ -124,6 +125,15 @@ def var_login_merchant_branch():
 
     login = requests.post(url_login_merchant, data=param, headers={'Accept': 'application/json'})
     return login
+
+
+def var_list_menu_discover():
+    param2 = {
+        'latitude':lat,
+        'longitude':long
+    }
+    discover = requests.get(url_discover_customer, params=param2,headers=header_with_token_customer)
+    return discover
 
 
 def var_list_menu_merchant():

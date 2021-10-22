@@ -8,15 +8,14 @@ from datetime import *
 sys.path.append('.../IntegrationTest')
 
 # ================================================================================================
-param = {
-    'email': 'kopiruangvirtual gmail.com'
+param2 = {
+    'latitude': settings.lat,
+    'longitude': 'aaa'
 }
-headers = {
-    "Accept": "application/json"
-}
-
-response = requests.post(settings.url_reset_password_customer, params=param, headers=headers)
-data = response.json()
+show_menu = requests.get(settings.url_show_menu_customer + str(
+    settings.var_list_menu_discover().json().get('data')['nearby_menu'][0]['stock_id']),
+                         params=param2, headers=settings.header_with_token_customer)
+data = show_menu.json()
 print(data)
 # ================================================================================================
 # mydb = mysql.connector.connect(
