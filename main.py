@@ -12,9 +12,9 @@ param2 = {
     'latitude': 'aaa',
     'longitude': settings.long
 }
-show_merchants = requests.get(settings.url_show_merchants_customer + str(settings.var_list_menu_discover().json().get('data')['nearby_merchant'][0]['merchant_id']),
-                         params=param2, headers=settings.header_with_token_customer)
-data = show_merchants.json()
+like_merchants = requests.patch(settings.url_like_merchant_customer + '9999' + '/like',
+                                        headers=settings.header_wrong_token_customer)
+data = like_merchants.json()
 print(data)
 # ================================================================================================
 # mydb = mysql.connector.connect(
