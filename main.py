@@ -9,13 +9,12 @@ sys.path.append('.../IntegrationTest')
 
 # ================================================================================================
 param2 = {
-    'latitude': settings.lat,
-    'longitude': 'aaa'
+    'latitude': 'aaa',
+    'longitude': settings.long
 }
-show_menu = requests.get(settings.url_show_menu_customer + str(
-    settings.var_list_menu_discover().json().get('data')['nearby_menu'][0]['stock_id']),
+show_merchants = requests.get(settings.url_show_merchants_customer + str(settings.var_list_menu_discover().json().get('data')['nearby_merchant'][0]['merchant_id']),
                          params=param2, headers=settings.header_with_token_customer)
-data = show_menu.json()
+data = show_merchants.json()
 print(data)
 # ================================================================================================
 # mydb = mysql.connector.connect(

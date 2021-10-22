@@ -95,6 +95,7 @@ url_logout_customer = f"{use_env}/api/v2/customer/auth/logout"
 url_discover_customer = f"{use_env}/api/v2/customer/discover"
 url_search_customer = f"{use_env}/api/v2/customer/search"
 url_show_menu_customer = f"{use_env}/api/v2/customer/menus/"
+url_show_merchants_customer = f"{use_env}/api/v2/customer/merchants/"
 
 
 # VARIABLE
