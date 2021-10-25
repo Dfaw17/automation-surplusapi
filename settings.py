@@ -103,6 +103,7 @@ url_banner_customer = f"{use_env}/api/v2/customer/banners"
 url_index_address_customer = f"{use_env}/api/v2/customer/address/"
 url_show_address_customer = f"{use_env}/api/v2/customer/address/"
 url_create_address_customer = f"{use_env}/api/v2/customer/address"
+url_delete_address_customer = f"{use_env}/api/v2/customer/address/"
 
 
 # VARIABLE
