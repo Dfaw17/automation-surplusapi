@@ -348,7 +348,7 @@ class TestSetActiveMenu:
             'max_storage_days': ''
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + "628" + "/active", data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + settings.menu_sayur + "/active", data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get('success')
@@ -367,7 +367,7 @@ class TestSetActiveMenu:
             # 'max_storage_days': ''
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + "628" + "/active", data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + settings.menu_sayur + "/active", data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get('success')
