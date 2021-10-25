@@ -99,6 +99,7 @@ url_show_merchants_customer = f"{use_env}/api/v2/customer/merchants/"
 url_like_merchant_customer = f"{use_env}/api/v2/customer/merchants/"
 url_list_merchant_customer = f"{use_env}/api/v2/customer/merchants"
 url_index_menu_customer = f"{use_env}/api/v2/customer/menus"
+url_banner_customer = f"{use_env}/api/v2/customer/banners"
 
 
 # VARIABLE
