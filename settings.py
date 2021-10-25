@@ -101,6 +101,7 @@ url_list_merchant_customer = f"{use_env}/api/v2/customer/merchants"
 url_index_menu_customer = f"{use_env}/api/v2/customer/menus"
 url_banner_customer = f"{use_env}/api/v2/customer/banners"
 url_index_address_customer = f"{use_env}/api/v2/customer/address/"
+url_show_address_customer = f"{use_env}/api/v2/customer/address/"
 
 
 # VARIABLE
@@ -135,10 +136,10 @@ def var_login_merchant_branch():
 
 def var_list_menu_discover():
     param2 = {
-        'latitude':lat,
-        'longitude':long
+        'latitude': lat,
+        'longitude': long
     }
-    discover = requests.get(url_discover_customer, params=param2,headers=header_with_token_customer)
+    discover = requests.get(url_discover_customer, params=param2, headers=header_with_token_customer)
     return discover
 
 
@@ -150,6 +151,11 @@ def var_list_menu_merchant():
 def var_list_order_merchant():
     order = requests.get(url_index_order_merchant + '?type=finish', headers=header_with_token_merchant)
     return order
+
+
+def var_list_voucher_customer():
+    voucher = requests.get(url_index_address_customer, headers=header_with_token_customer)
+    return voucher
 
 
 def var_reject_verify_merchant():
