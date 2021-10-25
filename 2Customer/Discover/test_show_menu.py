@@ -148,7 +148,7 @@ class TestCustomerShowMenu:
             'latitude': settings.lat,
             'longitude': settings.long
         }
-        show_menu = requests.get(settings.url_show_menu_customer + '999',
+        show_menu = requests.get(settings.url_show_menu_customer + '99999',
                                  params=param2, headers=settings.header_with_token_customer)
 
         validate_status = show_menu.json().get('success')
