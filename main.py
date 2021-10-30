@@ -8,7 +8,15 @@ from datetime import *
 sys.path.append('.../IntegrationTest')
 
 # ================================================================================================
+param = {
+    "event": "stock",
+    "stock": "777",
+}
 
+response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_sayur) + "/partial", data=param,
+                          headers=settings.header_with_token_merchant)
+data = response.json()
+print(data)
 # ================================================================================================
 # mydb = mysql.connector.connect(
 #     host="aa93f9gb1m7iap.clslftpx6d63.ap-southeast-1.rds.amazonaws.com",

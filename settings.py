@@ -109,6 +109,8 @@ url_list_voucher_customer = f"{use_env}/api/v2/customer/vouchers"
 url_fav_merchant_customer = f"{use_env}/api/v2/customer/profiles/favorite-merchant"
 url_update_private_data_customer = f"{use_env}/api/v2/customer/profiles/private-data"
 url_update_password_customer = f"{use_env}/api/v2/customer/profiles/password"
+url_index_voucher_customer = f"{use_env}/api/v2/customer/vouchers"
+url_show_voucher_customer = f"{use_env}/api/v2/customer/vouchers/"
 
 
 # VARIABLE

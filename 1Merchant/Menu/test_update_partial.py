@@ -14,7 +14,7 @@ class TestUpdatePartial:
             "stock": "777",
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + settings.menu_sayur + "/partial", data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_sayur) + "/partial", data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get('success')
@@ -34,7 +34,7 @@ class TestUpdatePartial:
             "waktu_akhir_penjemputan": "23:00",
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + settings.menu_sayur + "/partial", data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_sayur) + "/partial", data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get('success')
@@ -56,7 +56,7 @@ class TestUpdatePartial:
             "max_storage_days": "15",
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + settings.menu_sayur + "/partial", data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_sayur) + "/partial", data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get('success')
@@ -74,7 +74,7 @@ class TestUpdatePartial:
             "stock": "777",
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + settings.menu_non_sayur + "/partial",
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_non_sayur) + "/partial",
                                   data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
@@ -95,7 +95,7 @@ class TestUpdatePartial:
             "waktu_akhir_penjemputan": "23:00",
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + settings.menu_non_sayur + "/partial",
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_non_sayur) + "/partial",
                                   data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
@@ -118,7 +118,7 @@ class TestUpdatePartial:
             "expired_date": "2023-09-09",
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + settings.menu_non_sayur + "/partial",
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_non_sayur) + "/partial",
                                   data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
@@ -137,7 +137,7 @@ class TestUpdatePartial:
             "stock": "",
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + settings.menu_non_sayur + "/partial",
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_non_sayur) + "/partial",
                                   data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
@@ -154,7 +154,7 @@ class TestUpdatePartial:
             "stock": "aaa",
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + settings.menu_non_sayur + "/partial",
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_non_sayur) + "/partial",
                                   data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
@@ -171,7 +171,7 @@ class TestUpdatePartial:
             # "stock": "",
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + settings.menu_non_sayur + "/partial",
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_non_sayur) + "/partial",
                                   data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
@@ -188,7 +188,7 @@ class TestUpdatePartial:
             "max_storage_days": "",
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + settings.menu_sayur + "/partial", data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_sayur) + "/partial", data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get('success')
@@ -204,7 +204,7 @@ class TestUpdatePartial:
             # "max_storage_days": "",
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + settings.menu_sayur + "/partial", data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_sayur) + "/partial", data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get('success')
@@ -220,7 +220,7 @@ class TestUpdatePartial:
             "max_storage_days": "aaa",
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + settings.menu_sayur + "/partial", data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_sayur) + "/partial", data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get('success')
@@ -236,7 +236,7 @@ class TestUpdatePartial:
             "expired_date": "",
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + settings.menu_non_sayur + "/partial",
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_non_sayur) + "/partial",
                                   data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
@@ -253,7 +253,7 @@ class TestUpdatePartial:
             # "expired_date": "",
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + settings.menu_non_sayur + "/partial",
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_non_sayur) + "/partial",
                                   data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
@@ -270,7 +270,7 @@ class TestUpdatePartial:
             "expired_date": "aaa",
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + settings.menu_non_sayur + "/partial",
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_non_sayur) + "/partial",
                                   data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()

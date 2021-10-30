@@ -17,7 +17,7 @@ class TestSetActiveMenu:
             'expired_date': '2023-12-12'
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + settings.menu_non_sayur + "/active", data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_non_sayur) + "/active", data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get('success')
@@ -36,7 +36,7 @@ class TestSetActiveMenu:
             'max_storage_days': '5'
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + settings.menu_sayur + "/active", data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_sayur) + "/active", data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get('success')
@@ -55,7 +55,7 @@ class TestSetActiveMenu:
             'expired_date': '2023-12-12'
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + settings.menu_non_sayur + "/active", data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_non_sayur) + "/active", data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get('success')
@@ -74,7 +74,7 @@ class TestSetActiveMenu:
             'max_storage_days': '5'
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + settings.menu_sayur + "/active", data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_sayur) + "/active", data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get('success')
@@ -93,7 +93,7 @@ class TestSetActiveMenu:
             'expired_date': '2023-12-12'
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + settings.menu_non_sayur + "/active", data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_non_sayur) + "/active", data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get('success')
@@ -112,7 +112,7 @@ class TestSetActiveMenu:
             'max_storage_days': '3'
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + settings.menu_sayur + "/active", data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_sayur) + "/active", data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get('success')
@@ -131,8 +131,7 @@ class TestSetActiveMenu:
             'expired_date': '2023-12-12'
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + str(
-            settings.var_list_menu_merchant().json().get('data')[0]['id']) + "/active", data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_non_sayur) + "/active", data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get('success')
@@ -151,8 +150,7 @@ class TestSetActiveMenu:
             'expired_date': '2023-12-12'
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + str(
-            settings.var_list_menu_merchant().json().get('data')[0]['id']) + "/active", data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_non_sayur) + "/active", data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get('success')
@@ -170,8 +168,7 @@ class TestSetActiveMenu:
             'expired_date': '2023-12-12'
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + str(
-            settings.var_list_menu_merchant().json().get('data')[0]['id']) + "/active", data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_non_sayur) + "/active", data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get('success')
@@ -190,8 +187,7 @@ class TestSetActiveMenu:
             'expired_date': '2023-12-12'
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + str(
-            settings.var_list_menu_merchant().json().get('data')[0]['id']) + "/active", data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_non_sayur) + "/active", data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get('success')
@@ -210,8 +206,7 @@ class TestSetActiveMenu:
             'expired_date': '2023-12-12'
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + str(
-            settings.var_list_menu_merchant().json().get('data')[0]['id']) + "/active", data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_non_sayur) + "/active", data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get('success')
@@ -230,8 +225,7 @@ class TestSetActiveMenu:
             'expired_date': '2023-12-12'
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + str(
-            settings.var_list_menu_merchant().json().get('data')[0]['id']) + "/active", data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_non_sayur) + "/active", data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get('success')
@@ -250,8 +244,7 @@ class TestSetActiveMenu:
             'expired_date': '2023-12-12'
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + str(
-            settings.var_list_menu_merchant().json().get('data')[0]['id']) + "/active", data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_non_sayur) + "/active", data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get('success')
@@ -270,8 +263,7 @@ class TestSetActiveMenu:
             'expired_date': '2023-12-12'
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + str(
-            settings.var_list_menu_merchant().json().get('data')[0]['id']) + "/active", data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_non_sayur) + "/active", data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get('success')
@@ -290,8 +282,7 @@ class TestSetActiveMenu:
             'expired_date': '2023-12-12'
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + str(
-            settings.var_list_menu_merchant().json().get('data')[0]['id']) + "/active", data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_non_sayur) + "/active", data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get('success')
@@ -310,8 +301,7 @@ class TestSetActiveMenu:
             'expired_date': '2023-12-12'
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + str(
-            settings.var_list_menu_merchant().json().get('data')[0]['id']) + "/active", data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_non_sayur) + "/active", data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get('success')
@@ -330,7 +320,7 @@ class TestSetActiveMenu:
             'expired_date': '2023-12-12'
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + "999/active", data=param,headers=settings.header_with_token_merchant)
+        response = requests.patch(settings.url_set_active_menu_merchant + "99999999/active", data=param,headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get('success')
         validate_message = data.get('message')
@@ -348,7 +338,7 @@ class TestSetActiveMenu:
             'max_storage_days': ''
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + settings.menu_sayur + "/active", data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_sayur) + "/active", data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get('success')
@@ -367,7 +357,7 @@ class TestSetActiveMenu:
             # 'max_storage_days': ''
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + settings.menu_sayur + "/active", data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_sayur) + "/active", data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get('success')
@@ -386,7 +376,7 @@ class TestSetActiveMenu:
             'max_storage_days': 'aaa'
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + "628" + "/active", data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_sayur) + "/active", data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get('success')
@@ -405,8 +395,7 @@ class TestSetActiveMenu:
             'expired_date': ''
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + str(
-            settings.var_list_menu_merchant().json().get('data')[0]['id']) + "/active", data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_non_sayur) + "/active", data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get('success')
@@ -423,7 +412,7 @@ class TestSetActiveMenu:
             # 'expired_date': ''
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + "731" + "/active", data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_non_sayur) + "/active", data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get('success')
@@ -442,8 +431,7 @@ class TestSetActiveMenu:
             'expired_date': 'aaa'
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + str(
-            settings.var_list_menu_merchant().json().get('data')[0]['id']) + "/active", data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_non_sayur) + "/active", data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get('success')
