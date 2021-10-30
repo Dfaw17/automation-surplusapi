@@ -40,8 +40,8 @@ harga_jual = 10000
 status_halal = 0
 weight = 200
 weight_string = "1 Mangkok"
-menu_sayur = '556'
-menu_non_sayur = '554'
+menu_sayur = 947
+menu_non_sayur = 948
 merchant_central = '10269'
 merchant_branch = '10270'
 now = datetime.today().strftime('%Y%m%d')
@@ -104,6 +104,11 @@ url_index_address_customer = f"{use_env}/api/v2/customer/address/"
 url_show_address_customer = f"{use_env}/api/v2/customer/address/"
 url_create_address_customer = f"{use_env}/api/v2/customer/address"
 url_delete_address_customer = f"{use_env}/api/v2/customer/address/"
+url_show_profiles_customer = f"{use_env}/api/v2/customer/profiles"
+url_list_voucher_customer = f"{use_env}/api/v2/customer/vouchers"
+url_fav_merchant_customer = f"{use_env}/api/v2/customer/profiles/favorite-merchant"
+url_update_private_data_customer = f"{use_env}/api/v2/customer/profiles/private-data"
+url_update_password_customer = f"{use_env}/api/v2/customer/profiles/password"
 
 
 # VARIABLE
@@ -166,6 +171,20 @@ def var_reject_verify_merchant():
     query.execute(f'UPDATE verify_requests SET status_verify_request_id=2 WHERE id={id}')
     mydb.commit()
     print(query.rowcount, "record(s) affected")
+
+
+def var_deleted_menu():
+    deleted_menu = var_list_menu_merchant().json().get('data')
+
+    if deleted_menu[0]['id'] == menu_sayur or deleted_menu[0]['id'] == menu_non_sayur:
+        if deleted_menu[1]['id'] == menu_sayur or deleted_menu[0]['id'] == menu_non_sayur:
+            menu = deleted_menu[2]['id']
+        else:
+            menu = deleted_menu[1]['id']
+    else:
+        menu = deleted_menu[0]['id']
+
+    return menu
 
 
 # HEADER SETTING

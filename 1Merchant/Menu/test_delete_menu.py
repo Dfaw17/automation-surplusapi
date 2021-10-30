@@ -9,8 +9,8 @@ sys.path.append('.../IntegrationTest')
 class TestDeleteMerchantMenu:
 
     def test_delete_menu_normal(self):
-        response = requests.delete(settings.url_delete_menu_merchant + str(
-            settings.var_list_menu_merchant().json().get('data')[0]['id']), headers=settings.header_with_token_merchant)
+        response = requests.delete(settings.url_delete_menu_merchant + str(settings.var_deleted_menu()),
+                                   headers=settings.header_with_token_merchant)
         data = response.json()
 
         validate_status = data.get("success")
@@ -45,7 +45,8 @@ class TestDeleteMerchantMenu:
 
     def test_delete_menu_wrong_token(self):
         response = requests.delete(settings.url_delete_menu_merchant + str(
-            settings.var_list_menu_merchant().json().get('data')[0]['id']), headers=settings.header_wrong_token_merchant)
+            settings.var_list_menu_merchant().json().get('data')[0]['id']),
+                                   headers=settings.header_wrong_token_merchant)
 
         data = response.json()
         validate_status = data.get("success")
@@ -57,7 +58,8 @@ class TestDeleteMerchantMenu:
 
     def test_delete_menu_empty_token(self):
         response = requests.delete(settings.url_delete_menu_merchant + str(
-            settings.var_list_menu_merchant().json().get('data')[0]['id']), headers=settings.header_without_token_merchant)
+            settings.var_list_menu_merchant().json().get('data')[0]['id']),
+                                   headers=settings.header_without_token_merchant)
 
         data = response.json()
         validate_status = data.get("success")
