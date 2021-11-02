@@ -82,6 +82,7 @@ origin = "facebook"
 wrong_token_customer = "AAAAABBBBCCCCDDDD"
 lat = '-6.3823317'
 long = '107.1162607'
+id_merchant_pusat = '10269'
 # ---------------------------------------------------------------------------
 url_register_email_customer = f"{use_env}/api/v2/customer/auth/register/email"
 url_register_oauth_customer = f"{use_env}/api/v2/customer/auth/register/oauth"
@@ -111,6 +112,13 @@ url_update_private_data_customer = f"{use_env}/api/v2/customer/profiles/private-
 url_update_password_customer = f"{use_env}/api/v2/customer/profiles/password"
 url_index_voucher_customer = f"{use_env}/api/v2/customer/vouchers"
 url_show_voucher_customer = f"{use_env}/api/v2/customer/vouchers/"
+url_list_order_customer = f"{use_env}/api/v2/customer/orders"
+url_detail_order_customer = f"{use_env}/api/v2/customer/orders/"
+url_show_payment_status_customer = f"{use_env}/api/v2/customer/orders/"
+url_checkout_customer = f"{use_env}/api/v2/customer/orders/checkout"
+url_index_review_customer = f"{use_env}/api/v2/customer/public/reviews"
+url_like_unlike_review_customer = f"{use_env}/api/v2/customer/reviews/"
+url_like_report_unreport_customer = f"{use_env}/api/v2/customer/reviews/"
 
 
 # VARIABLE
@@ -187,6 +195,25 @@ def var_deleted_menu():
         menu = deleted_menu[0]['id']
 
     return menu
+
+
+def var_list_order_customer():
+    param2 = {
+        'status_order': 'done'
+    }
+    list_order = requests.get(url_list_order_customer, params=param2, headers=header_with_token_customer)
+    return list_order
+
+
+def var_index_review():
+    param = {
+        'filter_by': 'all',
+        'merchant_id': id_merchant_pusat
+    }
+
+    review = requests.get(url_index_review_customer, params=param,
+                          headers=header_with_token_customer)
+    return review
 
 
 # HEADER SETTING
