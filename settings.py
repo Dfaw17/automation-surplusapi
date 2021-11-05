@@ -42,6 +42,7 @@ weight = 200
 weight_string = "1 Mangkok"
 menu_sayur = 947
 menu_non_sayur = 948
+menu_barnch = 995
 merchant_central = '10269'
 merchant_branch = '10270'
 now = datetime.today().strftime('%Y%m%d')
@@ -74,7 +75,7 @@ url_get_voucher_central_merchant = f"{use_env}/api/v2/merchant/voucher-central"
 # ACCOUNT CUSTOMER
 fake_email = fake.email()
 kata_sandi = "12345678"
-email_has_registered = 'kopiruangvirtual@gmail.com'
+email_has_registered = 'kopi.ruang.rehat@gmail.com'
 email_belum_register = 'kopiruangvirtual99@gmail.com'
 email_oauth = "daffafawwazmaulana170901@gmail.com"
 origin_id = "2840811776172986"
