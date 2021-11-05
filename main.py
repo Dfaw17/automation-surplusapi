@@ -8,10 +8,12 @@ from datetime import *
 sys.path.append('.../IntegrationTest')
 
 # ================================================================================================
-review = requests.post(settings.url_like_unlike_review_customer + '998877665544332211' + '/like-dislike',
-                       headers=settings.header_with_token_customer)
-
-print(review.json())
+param = {
+    'post_id': settings.var_index_forum().json().get('data')['popular_posts'][0]['id']
+}
+comment = requests.get(settings.url_get_comment_forum_customer, params=param,
+                       headers=settings.header_wrong_token_customer)
+print(comment.json())
 # ================================================================================================
 # mydb = mysql.connector.connect(
 #     host="aa93f9gb1m7iap.clslftpx6d63.ap-southeast-1.rds.amazonaws.com",

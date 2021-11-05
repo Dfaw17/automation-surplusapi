@@ -119,6 +119,9 @@ url_checkout_customer = f"{use_env}/api/v2/customer/orders/checkout"
 url_index_review_customer = f"{use_env}/api/v2/customer/public/reviews"
 url_like_unlike_review_customer = f"{use_env}/api/v2/customer/reviews/"
 url_like_report_unreport_customer = f"{use_env}/api/v2/customer/reviews/"
+url_index_forum_customer = f"{use_env}/api/v2/customer/forums"
+url_show_forum_customer = f"{use_env}/api/v2/customer/forums/"
+url_get_comment_forum_customer = f"{use_env}/api/v2/customer/comments"
 
 
 # VARIABLE
@@ -203,6 +206,11 @@ def var_list_order_customer():
     }
     list_order = requests.get(url_list_order_customer, params=param2, headers=header_with_token_customer)
     return list_order
+
+
+def var_index_forum():
+    index = requests.get(url_index_forum_customer, headers=header_with_token_customer)
+    return index
 
 
 def var_index_review():
