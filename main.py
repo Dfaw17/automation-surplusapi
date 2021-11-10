@@ -9,11 +9,14 @@ sys.path.append('.../IntegrationTest')
 
 # ================================================================================================
 param = {
-    'post_id': settings.var_index_forum().json().get('data')['popular_posts'][0]['id']
+    'forum_id': '10',
+    'forum_komentar_id': '197',
+    'forum_report_kategori_id': '',
+    'content': 'parah cuk'
 }
-comment = requests.get(settings.url_get_comment_forum_customer, params=param,
-                       headers=settings.header_wrong_token_customer)
-print(comment.json())
+reports_comment = requests.post(settings.url_reports_comment_forum_customer,
+                                headers=settings.header_with_token_customer, data=param)
+print(reports_comment.json())
 # ================================================================================================
 # mydb = mysql.connector.connect(
 #     host="aa93f9gb1m7iap.clslftpx6d63.ap-southeast-1.rds.amazonaws.com",

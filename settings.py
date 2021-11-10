@@ -123,6 +123,11 @@ url_like_report_unreport_customer = f"{use_env}/api/v2/customer/reviews/"
 url_index_forum_customer = f"{use_env}/api/v2/customer/forums"
 url_show_forum_customer = f"{use_env}/api/v2/customer/forums/"
 url_get_comment_forum_customer = f"{use_env}/api/v2/customer/comments"
+url_profile_forum_customer = f"{use_env}/api/v2/customer/profile-forums"
+url_store_forum_customer = f"{use_env}/api/v2/customer/forums"
+url_like_unlike_forum_customer = f"{use_env}/api/v2/customer/likes"
+url_store_comment_forum_customer = f"{use_env}/api/v2/customer/comments"
+url_reports_comment_forum_customer = f"{use_env}/api/v2/customer/reports/comment"
 
 
 # VARIABLE
