@@ -128,6 +128,8 @@ url_store_forum_customer = f"{use_env}/api/v2/customer/forums"
 url_like_unlike_forum_customer = f"{use_env}/api/v2/customer/likes"
 url_store_comment_forum_customer = f"{use_env}/api/v2/customer/comments"
 url_reports_comment_forum_customer = f"{use_env}/api/v2/customer/reports/comment"
+url_reports_post_forum_customer = f"{use_env}/api/v2/customer/reports/forum"
+url_bookmart_forum_customer = f"{use_env}/api/v2/customer/bookmarks"
 
 
 # VARIABLE

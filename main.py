@@ -8,15 +8,9 @@ from datetime import *
 sys.path.append('.../IntegrationTest')
 
 # ================================================================================================
-param = {
-    'forum_id': '10',
-    'forum_komentar_id': '197',
-    'forum_report_kategori_id': '',
-    'content': 'parah cuk'
-}
-reports_comment = requests.post(settings.url_reports_comment_forum_customer,
-                                headers=settings.header_with_token_customer, data=param)
-print(reports_comment.json())
+unbookmart_comment = requests.delete(settings.url_bookmart_forum_customer + '',
+                                     headers=settings.header_with_token_customer)
+print(unbookmart_comment.json())
 # ================================================================================================
 # mydb = mysql.connector.connect(
 #     host="aa93f9gb1m7iap.clslftpx6d63.ap-southeast-1.rds.amazonaws.com",
