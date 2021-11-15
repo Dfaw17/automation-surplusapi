@@ -11,7 +11,7 @@ class TestCustomerShowAddress:
 
     def test_show_address_normal(self):
         show = requests.get(
-            settings.url_show_address_customer + str(settings.var_list_voucher_customer().json().get('data')[0]['id']),
+            settings.url_show_address_customer + str(settings.var_list_address_customer().json().get('data')[0]['id']),
             headers=settings.header_with_token_customer)
 
         verify_status = show.json().get('success')
@@ -25,11 +25,11 @@ class TestCustomerShowAddress:
         assert_that(verify_data).contains_only('id', 'user_id', 'receiver', 'phone', 'address', 'kategori', 'title',
                                                'note',
                                                'created_at', 'updated_at', 'latitude', 'longitude')
-        assert verify_data_id == settings.var_list_voucher_customer().json().get('data')[0]['id']
+        assert verify_data_id == settings.var_list_address_customer().json().get('data')[0]['id']
 
     def test_show_address_wrong_token(self):
         show = requests.get(
-            settings.url_show_address_customer + str(settings.var_list_voucher_customer().json().get('data')[0]['id']),
+            settings.url_show_address_customer + str(settings.var_list_address_customer().json().get('data')[0]['id']),
             headers=settings.header_wrong_token_customer)
 
         verify_status = show.json().get('success')
@@ -41,7 +41,7 @@ class TestCustomerShowAddress:
 
     def test_show_address_token_empty_value(self):
         show = requests.get(
-            settings.url_show_address_customer + str(settings.var_list_voucher_customer().json().get('data')[0]['id']),
+            settings.url_show_address_customer + str(settings.var_list_address_customer().json().get('data')[0]['id']),
             headers=settings.header_without_token_customer)
 
         verify_status = show.json().get('success')

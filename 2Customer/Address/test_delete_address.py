@@ -10,7 +10,7 @@ class TestCustomerDeleteAddress:
 
     def test_delete_address_normal(self):
         delete = requests.delete(settings.url_delete_address_customer + str(
-            settings.var_list_voucher_customer().json().get('data')[0]['id']),
+            settings.var_list_address_customer().json().get('data')[0]['id']),
                                  headers=settings.header_with_token_customer)
 
         validate_status = delete.json().get('success')
@@ -22,7 +22,7 @@ class TestCustomerDeleteAddress:
 
     def test_delete_wrong_token(self):
         delete = requests.delete(settings.url_delete_address_customer + str(
-            settings.var_list_voucher_customer().json().get('data')[0]['id']),
+            settings.var_list_address_customer().json().get('data')[0]['id']),
                                  headers=settings.header_wrong_token_customer)
 
         validate_status = delete.json().get('success')
@@ -34,7 +34,7 @@ class TestCustomerDeleteAddress:
 
     def test_delete_address_token_empty_value(self):
         delete = requests.delete(settings.url_delete_address_customer + str(
-            settings.var_list_voucher_customer().json().get('data')[0]['id']),
+            settings.var_list_address_customer().json().get('data')[0]['id']),
                                  headers=settings.header_without_token_customer)
 
         validate_status = delete.json().get('success')

@@ -130,6 +130,7 @@ url_store_comment_forum_customer = f"{use_env}/api/v2/customer/comments"
 url_reports_comment_forum_customer = f"{use_env}/api/v2/customer/reports/comment"
 url_reports_post_forum_customer = f"{use_env}/api/v2/customer/reports/forum"
 url_bookmart_forum_customer = f"{use_env}/api/v2/customer/bookmarks"
+url_self_pickup_customer = f"{use_env}/api/v2/customer/orders/self-pickup"
 
 
 # VARIABLE
@@ -184,6 +185,11 @@ def var_list_order_merchant():
 def var_list_voucher_customer():
     voucher = requests.get(url_list_voucher_customer, headers=header_with_token_customer)
     return voucher
+
+
+def var_list_address_customer():
+    address = requests.get(url_index_address_customer, headers=header_with_token_customer)
+    return address
 
 
 def var_reject_verify_merchant():
