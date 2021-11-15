@@ -182,7 +182,7 @@ def var_list_order_merchant():
 
 
 def var_list_voucher_customer():
-    voucher = requests.get(url_index_address_customer, headers=header_with_token_customer)
+    voucher = requests.get(url_list_voucher_customer, headers=header_with_token_customer)
     return voucher
 
 

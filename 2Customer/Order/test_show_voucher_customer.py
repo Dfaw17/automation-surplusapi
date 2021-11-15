@@ -11,7 +11,7 @@ class TestCustomerOrdersShowVoucher:
 
     def test_show_voucher_normal(self):
         show_voucher = requests.get(
-            settings.url_show_voucher_customer + str(settings.var_list_voucher_customer().json().get('data')[0]['id']),
+            settings.url_show_voucher_customer + str(settings.var_list_voucher_customer().json().get('data')['voucher_surplus'][0]['id']),
             headers=settings.header_with_token_customer)
 
         validate_status = show_voucher.json().get('success')
@@ -31,7 +31,7 @@ class TestCustomerOrdersShowVoucher:
 
     def test_show_voucher_wrong_token(self):
         show_voucher = requests.get(
-            settings.url_show_voucher_customer + str(settings.var_list_voucher_customer().json().get('data')[0]['id']),
+            settings.url_show_voucher_customer + str(settings.var_list_voucher_customer().json().get('data')['voucher_surplus'][0]['id']),
             headers=settings.header_wrong_token_customer)
 
         validate_status = show_voucher.json().get('success')
@@ -43,7 +43,7 @@ class TestCustomerOrdersShowVoucher:
 
     def test_show_voucher_token_empty_value(self):
         show_voucher = requests.get(
-            settings.url_show_voucher_customer + str(settings.var_list_voucher_customer().json().get('data')[0]['id']),
+            settings.url_show_voucher_customer + str(settings.var_list_voucher_customer().json().get('data')['voucher_surplus'][0]['id']),
             headers=settings.header_without_token_customer)
 
         validate_status = show_voucher.json().get('success')
