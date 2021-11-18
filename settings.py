@@ -131,6 +131,7 @@ url_reports_comment_forum_customer = f"{use_env}/api/v2/customer/reports/comment
 url_reports_post_forum_customer = f"{use_env}/api/v2/customer/reports/forum"
 url_bookmart_forum_customer = f"{use_env}/api/v2/customer/bookmarks"
 url_self_pickup_customer = f"{use_env}/api/v2/customer/orders/self-pickup"
+url_delivery_customer = f"{use_env}/api/v2/customer/orders/delivery"
 
 
 # VARIABLE
