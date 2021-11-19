@@ -2,6 +2,7 @@ import requests
 import mysql.connector
 from datetime import *
 from faker import Faker
+import time
 
 fake = Faker()
 
@@ -134,6 +135,7 @@ url_self_pickup_customer = f"{use_env}/api/v2/customer/orders/self-pickup"
 url_delivery_customer = f"{use_env}/api/v2/customer/orders/delivery"
 url_cancel_order_customer = f"{use_env}/api/v2/customer/orders/"
 url_settlement_order_customer = f"{use_env}/api/v2/customer/orders/"
+url_insert_review_customer = f"{use_env}/api/v2/customer/reviews"
 
 
 # VARIABLE
@@ -284,6 +286,14 @@ def var_order_settlement():
     }
     self_pickup = requests.post(url_self_pickup_customer, data=param, headers=header_with_token_customer)
     return self_pickup
+
+
+def var_insert_review():
+    number = var_order_settlement().json().get('data')['registrasi_order_number']
+    time.sleep(3)
+    settlement_order = requests.post(url_settlement_order_customer + number + '/settlement?_method=PATCH',
+                                     headers=header_with_token_customer)
+    return settlement_order
 
 
 # HEADER SETTING
