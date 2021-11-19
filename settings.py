@@ -133,6 +133,7 @@ url_bookmart_forum_customer = f"{use_env}/api/v2/customer/bookmarks"
 url_self_pickup_customer = f"{use_env}/api/v2/customer/orders/self-pickup"
 url_delivery_customer = f"{use_env}/api/v2/customer/orders/delivery"
 url_cancel_order_customer = f"{use_env}/api/v2/customer/orders/"
+url_settlement_order_customer = f"{use_env}/api/v2/customer/orders/"
 
 
 # VARIABLE
@@ -266,6 +267,23 @@ def var_order_cancel():
     delivery = requests.post(url_delivery_customer, data=param, headers=header_with_token_customer)
 
     return delivery
+
+
+def var_order_settlement():
+    param = {
+        'payment_method_id': '1',
+        'phone_number': '081386356616',
+        'is_lunchbox': '0',
+        'donation_price': '2500',
+        'order_items[0][stock_id]': var_list_menu_discover().json().get('data')['nearby_menu'][0][
+            'stock_id'],
+        'order_items[0][qty]': '1',
+        'order_items[0][note]': 'Note Menu',
+        'address': 'Megaregency',
+        'note': 'Note QA'
+    }
+    self_pickup = requests.post(url_self_pickup_customer, data=param, headers=header_with_token_customer)
+    return self_pickup
 
 
 # HEADER SETTING
