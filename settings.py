@@ -132,6 +132,7 @@ url_reports_post_forum_customer = f"{use_env}/api/v2/customer/reports/forum"
 url_bookmart_forum_customer = f"{use_env}/api/v2/customer/bookmarks"
 url_self_pickup_customer = f"{use_env}/api/v2/customer/orders/self-pickup"
 url_delivery_customer = f"{use_env}/api/v2/customer/orders/delivery"
+url_cancel_order_customer = f"{use_env}/api/v2/customer/orders/"
 
 
 # VARIABLE
@@ -237,6 +238,34 @@ def var_index_review():
     review = requests.get(url_index_review_customer, params=param,
                           headers=header_with_token_customer)
     return review
+
+
+def var_order_cancel():
+    param = {
+        "payment_method_id": "1",
+        "is_lunchbox": "0",
+        "donation_price": "2500",
+        "order_items[0][qty]": "1",
+        "order_items[0][stock_id]": var_list_menu_discover().json().get('data')['nearby_menu'][0][
+            'stock_id'],
+        "address": "Megaregency",
+        "note": "Test Notes",
+        "delivery_price": "21000",
+        "delivery_provider": "GOSEND",
+        "delivery_method": "Instant",
+        "origin_contact_name": "Fawwaz 1",
+        "origin_contact_phone": "081386356616",
+        "origin_address": "Perumahan Megaregency 1",
+        "origin_lat_long": "-6.3823027,107.1162164",
+        "destination_contact_name": "Fawwaz 2",
+        "destination_contact_phone": "0857108194",
+        "destination_address": "Perumahan Megaregency 2",
+        "destination_lat_long": "-6.3772882,107.1062917",
+        "phone_number": "085710819443"
+    }
+    delivery = requests.post(url_delivery_customer, data=param, headers=header_with_token_customer)
+
+    return delivery
 
 
 # HEADER SETTING
