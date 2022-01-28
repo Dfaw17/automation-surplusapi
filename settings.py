@@ -19,7 +19,7 @@ query = mydb.cursor()
 production = "https://adminsurplus.net"
 stagging = "https://staging.adminsurplus.net"
 sandbox = "https://sandbox.adminsurplus.net"
-use_env = sandbox
+use_env = stagging
 
 # ACCOUNT MERCHANT
 email_merchant = "jangandipakai1@gmail.com"
