@@ -170,11 +170,11 @@ class TestCustomerDelivery:
                                  headers=settings.header_with_token_customer)
 
         verify_status = delivery.json().get('success')
-        verify_message = delivery.json().get('message')['payment_method_id'][0]
+        verify_message = delivery.json().get('message')
 
-        assert delivery.status_code == 422
+        assert delivery.status_code == 400
         assert verify_status == bool(False)
-        assert "Metode Pembayaran tidak boleh kosong" in verify_message
+        assert "Metode pembayaran harus dipilih" in verify_message
 
     def test_od_metode_pembayaran_empty_value(self):
         param = {
@@ -203,11 +203,11 @@ class TestCustomerDelivery:
                                  headers=settings.header_with_token_customer)
 
         verify_status = delivery.json().get('success')
-        verify_message = delivery.json().get('message')['payment_method_id'][0]
+        verify_message = delivery.json().get('message')['payment_method_id']
 
         assert delivery.status_code == 422
         assert verify_status == bool(False)
-        assert "Metode Pembayaran tidak boleh kosong" in verify_message
+        assert "Metode Pembayaran yang dipilih tidak tersedia." in verify_message
 
     def test_od_metode_pembayaran_text_value(self):
         param = {
@@ -635,9 +635,9 @@ class TestCustomerDelivery:
         verify_status = delivery.json().get('success')
         verify_message = delivery.json().get('message')
 
-        assert delivery.status_code == 404
+        assert delivery.status_code == 500
         assert verify_status == bool(False)
-        assert "Voucher tidak ditemukan" in verify_message
+        assert "Aduh!" in verify_message
 
     def test_od_voucher_text_value(self):
         param = {

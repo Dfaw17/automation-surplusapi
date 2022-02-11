@@ -136,12 +136,10 @@ class TestBranchGeneral:
         assert validate_status == bool(True)
         assert "Stock penjualan berhasil diubah" in validate_message
 
-    def test_branch_update_time(self):
+    def test_branch_max_active_date(self):
         param = {
-            "event":"activate",
-            "max_active_date": "2022-09-09",
-            "waktu_mulai_penjemputan": "00:30",
-            "waktu_akhir_penjemputan": "23:00"
+            "event":"max_active_date",
+            "max_active_date": "2023-09-09",
         }
 
         response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_barnch) + "/partial", data=param,
@@ -152,7 +150,7 @@ class TestBranchGeneral:
 
         assert response.status_code == 201
         assert validate_status == bool(True)
-        assert 'Waktu pengambilan berhasil diubah' in validate_message
+        assert 'Masa aktif menu telah diubah' in validate_message
 
     def test_branch_history_trx(self):
         response = requests.get(settings.url_history_trx_merchant,headers=settings.header_branch)

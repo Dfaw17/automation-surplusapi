@@ -103,7 +103,7 @@ class TestCustomerSelfPickup:
 
         assert self_pickup.status_code == 422
         assert validate_status == bool(False)
-        assert 'Metode Pembayaran tidak boleh kosong.' in validate_message
+        assert 'Metode Pembayaran yang dipilih tidak tersedia.' in validate_message
 
     def test_sp_without_param_payment_methode(self):
         param = {
@@ -122,11 +122,11 @@ class TestCustomerSelfPickup:
                                     headers=settings.header_with_token_customer)
 
         validate_status = self_pickup.json().get('success')
-        validate_message = self_pickup.json().get('message')['payment_method_id']
+        validate_message = self_pickup.json().get('message')
 
-        assert self_pickup.status_code == 422
+        assert self_pickup.status_code == 400
         assert validate_status == bool(False)
-        assert 'Metode Pembayaran tidak boleh kosong.' in validate_message
+        assert 'Metode pembayaran harus dipilih' in validate_message
 
     def test_sp_payment_methode_wrong_value(self):
         param = {
@@ -239,9 +239,9 @@ class TestCustomerSelfPickup:
         validate_status = self_pickup.json().get('success')
         validate_message = self_pickup.json().get('message')
 
-        assert self_pickup.status_code == 500
+        assert self_pickup.status_code == 400
         assert validate_status == bool(False)
-        assert 'Aduh!' in validate_message
+        assert 'Failed to validate the request, 1 error occurred.' in validate_message
 
     def test_sp_phone_wrong_format_value(self):
         param = {
@@ -262,9 +262,9 @@ class TestCustomerSelfPickup:
         validate_status = self_pickup.json().get('success')
         validate_message = self_pickup.json().get('message')
 
-        assert self_pickup.status_code == 500
+        assert self_pickup.status_code == 400
         assert validate_status == bool(False)
-        assert 'Aduh!' in validate_message
+        assert 'Failed to validate the request, 1 error occurred.' in validate_message
 
     def test_sp_lunchbox_empty_value(self):
         param = {
@@ -517,9 +517,9 @@ class TestCustomerSelfPickup:
         validate_status = self_pickup.json().get('success')
         validate_message = self_pickup.json().get('message')
 
-        assert self_pickup.status_code == 404
+        assert self_pickup.status_code == 500
         assert validate_status == bool(False)
-        assert 'Voucher tidak ditemukan' in validate_message
+        assert 'Aduh!' in validate_message
 
     def test_sp_voucher_text_value(self):
         param = {
@@ -763,7 +763,6 @@ class TestCustomerSelfPickup:
             'phone_number': '081386356616',
             'is_lunchbox': '0',
             'donation_price': '2500',
-            'voucher_id': '557',
             'order_items[0][stock_id]': settings.var_list_menu_discover().json().get('data')['nearby_menu'][0][
                 'stock_id'],
             'order_items[0][qty]': '1',
@@ -787,7 +786,6 @@ class TestCustomerSelfPickup:
             'phone_number': '081386356616',
             'is_lunchbox': '0',
             'donation_price': '2500',
-            'voucher_id': '557',
             'order_items[0][stock_id]': settings.var_list_menu_discover().json().get('data')['nearby_menu'][0][
                 'stock_id'],
             'order_items[0][qty]': '1',
@@ -879,7 +877,6 @@ class TestCustomerSelfPickup:
             'phone_number': '081386356616',
             'is_lunchbox': '0',
             'donation_price': '2500',
-            'voucher_id': '557',
             'order_items[0][stock_id]': settings.var_list_menu_discover().json().get('data')['nearby_menu'][0][
                 'stock_id'],
             'order_items[0][qty]': '1',

@@ -113,7 +113,7 @@ class TestOrderHistoryIncome:
         assert validate_status == bool(False)
         assert "Tanggal awal tidak cocok dengan format Y-m-d." in validate_message
 
-    def test_history_income_start_date_Wrong_format_value(self):
+    def test_history_income_start_date_wrong_format_value(self):
         param = {
             "filter_by": "custom",
             "start_date": "2019/01/01",

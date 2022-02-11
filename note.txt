@@ -1,1 +1,1 @@
-python -m pytest -v -p no:cacheprovider --disable-pytest-warnings .\1Merchant\Menu\test_show_merchant_menu.py
+python -m pytest --html-report=./report/report.html -v -p no:cacheprovider --disable-pytest-warnings .\2Customer\Order\test_order_selfpickup.py

@@ -29,14 +29,6 @@ class TestShowMerchantMenu:
         assert_that(validate_merchant_id).is_not_none()
         assert_that(validate_nama_makanan).is_not_empty()
         assert str(settings.var_list_menu_merchant().json().get('data')[0]['merchant_id']) == validate_merchant_id
-        assert_that(validate_data).contains_only('id', 'nama_menu_makanan', 'merchant_kategori_makanan_id',
-                                                 'is_exclusive', 'deskripsi', 'harga_asli', 'harga_jual',
-                                                 'is_non_halal', 'weight', 'weight_string', 'image_thumbnail',
-                                                 'created_at', 'updated_at', 'stock_id', 'merchant_id',
-                                                 'waktu_mulai_penjemputan', 'waktu_akhir_penjemputan', 'stock',
-                                                 'in_catalog', 'is_active', 'is_missed', 'is_tomorrow', 'waktu_missed',
-                                                 'total_terjual', 'max_active_date', 'expired_date', 'expired_time',
-                                                 'max_storage_days', 'menu_images')
 
     def test_show_merchant_menu_empty_token(self):
         response = requests.get(settings.url_get_all_merchant_menu_merchant + str(

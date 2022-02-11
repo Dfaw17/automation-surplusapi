@@ -5,9 +5,10 @@ from assertpy import assert_that
 
 sys.path.append('.../IntegrationTest')
 
-class TestGetAllCategories:
-    def test_get_all_categories_menu_normal(self):
 
+class TestGetAllCategories:
+
+    def test_get_all_categories_menu_normal(self):
         response = requests.get(settings.url_get_all_category_merchant, headers=settings.header_with_token_merchant)
         data = response.json()
 
@@ -23,7 +24,7 @@ class TestGetAllCategories:
         assert_that(validate_data[0]['nama']).is_equal_to('Makanan Berat')
         assert_that(validate_data[1]['nama']).is_equal_to('Makanan Vegan')
         assert_that(validate_data[2]['nama']).is_equal_to('Roti & Kue')
-        assert_that(validate_data[3]['nama']).is_equal_to('Bahan Makanan')
+        assert_that(validate_data[3]['nama']).is_equal_to('Bahan makanan')
         assert_that(validate_data[4]['nama']).is_equal_to('Buah & Sayur')
         assert_that(validate_data[5]['nama']).is_equal_to('Cemilan')
         assert_that(validate_data[6]['nama']).is_equal_to('Minuman')

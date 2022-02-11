@@ -17,7 +17,6 @@ class TestCustomerInsertReviewOrder:
             'is_hide_name': '0'
         }
         insert_review = requests.post(settings.url_insert_review_customer,params=param, headers=settings.header_with_token_customer)
-
         assert insert_review.status_code == 200
         assert insert_review.json().get('success') == True
         assert 'Berhasil' in insert_review.json().get('message')
@@ -139,7 +138,7 @@ class TestCustomerInsertReviewOrder:
 
     def test_insert_review_0_rating(self):
         param = {
-            'order_number': 'S2111190831445',
+            'order_number': 'S2202090934723',
             'rating': '5',
             'review': 'oke',
             'is_hide_name': '0'
@@ -148,7 +147,7 @@ class TestCustomerInsertReviewOrder:
 
         assert insert_review.status_code == 404
         assert insert_review.json().get('success') == False
-        assert 'Anda sudah memberikan rating pada order dengan nomor S2111190831445' in insert_review.json().get('message')
+        assert 'Anda sudah memberikan rating pada order dengan nomor S2202090934723' in insert_review.json().get('message')
 
     def test_insert_review_empty_review(self):
         param = {

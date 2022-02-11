@@ -104,7 +104,7 @@ class TestCustomerUpdatePrivateData:
 
         assert show_update_private_data.status_code == 422
         assert validate_status == bool(False)
-        assert 'Nama setidaknya harus 6 karakter.' in validate_message
+        assert 'Nama setidaknya harus 3 karakter.' in validate_message
 
     def test_update_private_data_without_param_phone(self):
         param2 = {

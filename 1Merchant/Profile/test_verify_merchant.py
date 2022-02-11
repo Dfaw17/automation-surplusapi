@@ -33,37 +33,10 @@ class TestVerifyMerchant:
         assert validate_status == bool(True)
         assert response.status_code == 200
         assert validate_message == "Pengajuan verifikasi toko berhasil."
-        assert validate_merchant_id == 10269
+        assert validate_merchant_id == 18869
         assert validate_status_verify_request_id == 3
 
         settings.var_reject_verify_merchant()
-
-    # def test_verify_information_normal(self):
-    #     param = {
-    #         "informations[questions][0][information_id]": 1,
-    #         "informations[questions][0][answer]": 'mantap 1',
-    #         "informations[questions][1][information_id]": 2,
-    #         "informations[questions][1][answer]": 'mantap 2',
-    #     }
-    #     file = {
-    #         'informations[images][0][images][0]': open("img/telkomsel.png", 'rb'),
-    #         'informations[images][1][images][0]': open("img/telkomsel.png", 'rb'),
-    #     }
-    #     response = requests.post(settings.url_verify_merchant, data=param, headers=settings.header_with_token_merchant,
-    #                              files=file)
-    #     data = response.json()
-    #     validate_status = data.get('success')
-    #     validate_message = data.get('message')
-    #     validate_merchant_id = data.get('data')['merchant_id']
-    #     validate_status_verify_request_id = data.get('data')['status_verify_request_id']
-    #
-    #     assert validate_status == bool(True)
-    #     assert response.status_code == 200
-    #     assert validate_message == "Pengajuan verifikasi toko berhasil."
-    #     assert validate_merchant_id == 10269
-    #     assert validate_status_verify_request_id == 3
-    #
-    #     settings.var_reject_verify_merchant()
 
     def test_insert_verify_certification_doest_match_image_and_data(self):
         param = {

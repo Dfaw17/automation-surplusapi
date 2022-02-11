@@ -9,7 +9,7 @@ sys.path.append('.../IntegrationTest')
 class TestDisableVoucher:
 
     def test_disable_normal(self):
-        response = requests.put(settings.url_voucher_merchant + '/181/disable',
+        response = requests.put(settings.url_voucher_merchant + '/162/disable',
                                 headers=settings.header_with_token_merchant)
 
         data = response.json()
@@ -21,7 +21,7 @@ class TestDisableVoucher:
         assert response.status_code == 200
         assert_that(validate_status).is_equal_to(bool(True))
         assert_that(validate_message).is_equal_to('Data voucher berhasil diubah.')
-        assert_that(validate_voucher_id).is_equal_to(181)
+        assert_that(validate_voucher_id).is_equal_to(162)
         assert_that(validate_disable).is_equal_to(bool(True))
 
     def test_disable_token_empty(self):

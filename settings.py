@@ -7,10 +7,16 @@ import time
 fake = Faker()
 
 # DATABASE
+# mydb = mysql.connector.connect(
+#     host="aa93f9gb1m7iap.clslftpx6d63.ap-southeast-1.rds.amazonaws.com",
+#     user="root",
+#     password="rahasia0502",
+#     database="ebdb"
+# )
 mydb = mysql.connector.connect(
-    host="aa93f9gb1m7iap.clslftpx6d63.ap-southeast-1.rds.amazonaws.com",
-    user="root",
-    password="rahasia0502",
+    host="surplus-db-staging.clslftpx6d63.ap-southeast-1.rds.amazonaws.com",
+    user="admin",
+    password="cosmos2020",
     database="ebdb"
 )
 query = mydb.cursor()
@@ -41,11 +47,11 @@ harga_jual = 10000
 status_halal = 0
 weight = 200
 weight_string = "1 Mangkok"
-menu_sayur = 947
-menu_non_sayur = 948
-menu_barnch = 995
-merchant_central = '10269'
-merchant_branch = '10270'
+menu_sayur = 4726
+menu_non_sayur = 4704
+menu_barnch = 4717
+merchant_central = '18869'
+merchant_branch = '18870'
 now = datetime.today().strftime('%Y%m%d')
 today = datetime.today().strftime('%Y-%m-%d')
 calc = datetime.today() + timedelta(days=7)
@@ -60,7 +66,7 @@ url_get_all_category_merchant = f"{use_env}/api/v2/merchant/categories"
 url_get_all_merchant_menu_merchant = f"{use_env}/api/v2/merchant/menus/"
 url_insert_menu_merchant = f"{use_env}/api/v2/merchant/menus"
 url_update_menu_merchant = f"{use_env}/api/v2/merchant/menus/"
-url_set_active_menu_merchant = f"{use_env}/api/v2/merchant/menus/"
+url_set_active_menu_merchant = f"{use_env}/api/v3/merchant/menus/"
 url_set_inactive_menu_merchant = f"{use_env}/api/v2/merchant/menus/"
 url_delete_menu_merchant = f"{use_env}/api/v2/merchant/menus/"
 url_index_order_merchant = f"{use_env}/api/v2/merchant/orders"
@@ -84,7 +90,7 @@ origin = "facebook"
 wrong_token_customer = "AAAAABBBBCCCCDDDD"
 lat = '-6.3823317'
 long = '107.1162607'
-id_merchant_pusat = '10269'
+id_merchant_pusat = '18869'
 # ---------------------------------------------------------------------------
 url_register_email_customer = f"{use_env}/api/v2/customer/auth/register/email"
 url_register_oauth_customer = f"{use_env}/api/v2/customer/auth/register/oauth"
@@ -198,7 +204,7 @@ def var_list_address_customer():
 
 
 def var_reject_verify_merchant():
-    query.execute('SELECT `id` FROM verify_requests where merchant_id = 10269 ORDER BY id DESC LIMIT 1')
+    query.execute('SELECT `id` FROM verify_requests where merchant_id = 18869 ORDER BY id DESC LIMIT 1')
     id = int(query.fetchone()[0])
     query.execute(f'UPDATE verify_requests SET status_verify_request_id=2 WHERE id={id}')
     mydb.commit()
@@ -290,9 +296,10 @@ def var_order_settlement():
 
 def var_insert_review():
     number = var_order_settlement().json().get('data')['registrasi_order_number']
-    time.sleep(3)
+    time.sleep(5)
     settlement_order = requests.post(url_settlement_order_customer + number + '/settlement?_method=PATCH',
                                      headers=header_with_token_customer)
+    print(settlement_order.json())
     return settlement_order
 
 

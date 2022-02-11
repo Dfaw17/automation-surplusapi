@@ -148,7 +148,7 @@ class TestCustomerRegisterEmail:
         assert validate_status == bool(False)
         assert 'Kata sandi tidak boleh kosong.' in validate_message
 
-    def test_register_with_email_rePassword_empty_value(self):
+    def test_register_with_email_repassword_empty_value(self):
         param = {
             "email": settings.fake_email,
             "password": settings.kata_sandi,
@@ -165,7 +165,7 @@ class TestCustomerRegisterEmail:
         assert validate_status == bool(False)
         assert 're-password tidak boleh kosong.' in validate_message
 
-    def test_register_with_email_without_param_rePassword(self):
+    def test_register_with_email_without_param_repassword(self):
         param = {
             "email": settings.fake_email,
             "password": settings.kata_sandi,
@@ -182,7 +182,7 @@ class TestCustomerRegisterEmail:
         assert validate_status == bool(False)
         assert 're-password tidak boleh kosong.' in validate_message
 
-    def test_register_with_email_pass_rePass_doesnt_match(self):
+    def test_register_with_email_pass_repass_doesnt_match(self):
         param = {
             "email": settings.fake_email,
             "password": settings.kata_sandi,

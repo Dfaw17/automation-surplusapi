@@ -21,6 +21,19 @@ class TestGetVoucher:
         assert response.status_code == 200
         assert_that(validate_status).is_equal_to(bool(True))
 
+    def test_get_voucher_all(self):
+        param = {
+            "status": "all",
+        }
+        response = requests.get(settings.url_voucher_merchant, params=param,
+                                headers=settings.header_with_token_merchant)
+
+        data = response.json()
+        validate_status = data.get('success')
+
+        assert response.status_code == 200
+        assert_that(validate_status).is_equal_to(bool(True))
+
     def test_get_voucher_pending(self):
         param = {
             "status": "2",
@@ -91,3 +104,16 @@ class TestGetVoucher:
         assert response.status_code == 422
         assert_that(validate_status).is_equal_to(bool(False))
         assert 'status tidak boleh kosong.' in validate_message
+
+    def test_get_voucher_without_status(self):
+        param = {
+            # "status": "1",
+        }
+        response = requests.get(settings.url_voucher_merchant, params=param,
+                                headers=settings.header_with_token_merchant)
+
+        data = response.json()
+        validate_status = data.get('success')
+
+        assert response.status_code == 422
+        assert_that(validate_status).is_equal_to(bool(False))

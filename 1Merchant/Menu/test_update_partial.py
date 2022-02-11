@@ -26,12 +26,10 @@ class TestUpdatePartial:
         assert_that(validate_stock).is_equal_to(777)
         assert "Stock penjualan berhasil diubah" in validate_message
 
-    def test_update_activate_kat_sayur(self):
+    def test_upadte_menu_active_max_active_date_normal(self):
         param = {
-            "event": "activate",
-            "max_active_date": "2022-09-09",
-            "waktu_mulai_penjemputan": "01:00",
-            "waktu_akhir_penjemputan": "23:00",
+            "event": "max_active_date",
+            "max_active_date": "2023-01-11",
         }
 
         response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_sayur) + "/partial", data=param,
@@ -39,106 +37,20 @@ class TestUpdatePartial:
         data = response.json()
         validate_status = data.get('success')
         validate_message = data.get('message')
-        validate_max_active_date = data.get('data')['max_active_date']
-        validate_waktu_mulai_penjemputan = data.get('data')['waktu_mulai_penjemputan']
-        validate_waktu_akhir_penjemputan = data.get('data')['waktu_akhir_penjemputan']
+        validate = data.get('data')['max_active_date']
 
         assert response.status_code == 201
         assert validate_status == bool(True)
-        assert "Waktu pengambilan berhasil diubah" in validate_message
-        assert_that(validate_max_active_date).is_equal_to('2022-09-09')
-        assert_that(validate_waktu_mulai_penjemputan).is_equal_to('01:00')
-        assert_that(validate_waktu_akhir_penjemputan).is_equal_to('23:00')
+        assert_that(validate).is_equal_to("2023-01-11")
+        assert "Masa aktif menu telah diubah" in validate_message
 
-    def test_update_expired_kat_sayur(self):
-        param = {
-            "event": "expired_limit ",
-            "max_storage_days": "15",
-        }
-
-        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_sayur) + "/partial", data=param,
-                                  headers=settings.header_with_token_merchant)
-        data = response.json()
-        validate_status = data.get('success')
-        validate_message = data.get('message')
-        validate_max_storage_days = data.get('data')['max_storage_days']
-
-        assert response.status_code == 201
-        assert validate_status == bool(True)
-        assert "Batas penyimpanan berhasil diperbarui" in validate_message
-        assert_that(validate_max_storage_days).is_equal_to(15)
-
-    def test_update_stock_non_kat_sayur(self):
-        param = {
-            "event": "stock",
-            "stock": "777",
-        }
-
-        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_non_sayur) + "/partial",
-                                  data=param,
-                                  headers=settings.header_with_token_merchant)
-        data = response.json()
-        validate_status = data.get('success')
-        validate_message = data.get('message')
-        validate_stock = data.get('data')['stock']
-
-        assert response.status_code == 201
-        assert validate_status == bool(True)
-        assert_that(validate_stock).is_equal_to(777)
-        assert "Stock penjualan berhasil diubah" in validate_message
-
-    def test_update_activate_kat_non_sayur(self):
-        param = {
-            "event": "activate",
-            "max_active_date": "2022-09-09",
-            "waktu_mulai_penjemputan": "01:00",
-            "waktu_akhir_penjemputan": "23:00",
-        }
-
-        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_non_sayur) + "/partial",
-                                  data=param,
-                                  headers=settings.header_with_token_merchant)
-        data = response.json()
-        validate_status = data.get('success')
-        validate_message = data.get('message')
-        validate_max_active_date = data.get('data')['max_active_date']
-        validate_waktu_mulai_penjemputan = data.get('data')['waktu_mulai_penjemputan']
-        validate_waktu_akhir_penjemputan = data.get('data')['waktu_akhir_penjemputan']
-
-        assert response.status_code == 201
-        assert validate_status == bool(True)
-        assert "Waktu pengambilan berhasil diubah" in validate_message
-        assert_that(validate_max_active_date).is_equal_to('2022-09-09')
-        assert_that(validate_waktu_mulai_penjemputan).is_equal_to('01:00')
-        assert_that(validate_waktu_akhir_penjemputan).is_equal_to('23:00')
-
-    def test_update_expired_kat_non_sayur(self):
-        param = {
-            "event": "expired_limit ",
-            "expired_date": "2023-09-09",
-        }
-
-        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_non_sayur) + "/partial",
-                                  data=param,
-                                  headers=settings.header_with_token_merchant)
-        data = response.json()
-        validate_status = data.get('success')
-        validate_message = data.get('message')
-        validate_expired_date = data.get('data')['expired_date']
-
-        assert response.status_code == 201
-        assert validate_status == bool(True)
-        assert "Batas penyimpanan berhasil diperbarui" in validate_message
-        assert_that(validate_expired_date).is_equal_to("2023-09-09")
-
-    def test_update_stock_non_kat_sayur_empty(self):
+    def test_update_menu_active_stock_empty(self):
         param = {
             "event": "stock",
             "stock": "",
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_non_sayur) + "/partial",
-                                  data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_sayur) + "/partial", data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get('success')
@@ -148,14 +60,13 @@ class TestUpdatePartial:
         assert validate_status == bool(False)
         assert "stock tidak boleh kosong ketika event adalah stock." in validate_message
 
-    def test_update_stock_non_kat_sayur_string(self):
+    def test_update_menu_active_stock_string_value(self):
         param = {
             "event": "stock",
-            "stock": "aaa",
+            "stock": "aa",
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_non_sayur) + "/partial",
-                                  data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_sayur) + "/partial", data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get('success')
@@ -163,16 +74,15 @@ class TestUpdatePartial:
 
         assert response.status_code == 422
         assert validate_status == bool(False)
-        assert 'stock harus berupa angka.' in validate_message
+        assert "stock harus berupa angka." in validate_message
 
-    def test_update_stock_non_kat_sayur_no_param(self):
+    def test_update_menu_active_without_param_stock(self):
         param = {
             "event": "stock",
-            # "stock": "",
+            # "stock": "aa",
         }
 
-        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_non_sayur) + "/partial",
-                                  data=param,
+        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_sayur) + "/partial", data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get('success')
@@ -182,101 +92,50 @@ class TestUpdatePartial:
         assert validate_status == bool(False)
         assert "stock tidak boleh kosong ketika event adalah stock." in validate_message
 
-    def test_update_expired_kat_sayur_empty(self):
+    def test_update_menu_max_active_date_empty(self):
         param = {
-            "event": "expired_limit ",
-            "max_storage_days": "",
+            "event": "max_active_date",
+            "max_active_date": "",
         }
 
         response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_sayur) + "/partial", data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get('success')
-        validate_message = data.get('message')['max_storage_days']
+        validate_message = data.get('message')['max_active_date']
 
         assert response.status_code == 422
         assert validate_status == bool(False)
-        assert "Lama penyimpanan tidak boleh kosong." in validate_message
+        assert "Tanggal maksimal menu aktif bukan format tanggal yang valid." in validate_message
 
-    def test_update_expired_kat_sayur_no_param(self):
+    def test_update_menu_without_param_max_active_date(self):
         param = {
-            "event": "expired_limit ",
-            # "max_storage_days": "",
+            "event": "max_active_date",
+            # "max_active_date": "",
         }
 
         response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_sayur) + "/partial", data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get('success')
-        validate_message = data.get('message')['max_storage_days']
+        validate_message = data.get('message')
 
-        assert response.status_code == 422
+        assert response.status_code == 500
         assert validate_status == bool(False)
-        assert "Lama penyimpanan tidak boleh kosong." in validate_message
+        assert "Aduh! Ada yang salah di sistem kami." in validate_message
 
-    def test_update_expired_kat_sayur_string(self):
+    def test_update_menu_max_active_date_wrong_value(self):
         param = {
-            "event": "expired_limit ",
-            "max_storage_days": "aaa",
+            "event": "max_active_date",
+            "max_active_date": "aaa",
         }
 
         response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_sayur) + "/partial", data=param,
                                   headers=settings.header_with_token_merchant)
         data = response.json()
         validate_status = data.get('success')
-        validate_message = data.get('message')['max_storage_days']
+        validate_message = data.get('message')['max_active_date']
 
         assert response.status_code == 422
         assert validate_status == bool(False)
-        assert "Lama penyimpanan harus berupa angka." in validate_message
-
-    def test_update_expired_kat_non_sayur_empty(self):
-        param = {
-            "event": "expired_limit ",
-            "expired_date": "",
-        }
-
-        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_non_sayur) + "/partial",
-                                  data=param,
-                                  headers=settings.header_with_token_merchant)
-        data = response.json()
-        validate_status = data.get('success')
-        validate_message = data.get('message')['expired_date']
-
-        assert response.status_code == 422
-        assert validate_status == bool(False)
-        assert "Tanggal kadaluarsa tidak boleh kosong." in validate_message
-
-    def test_update_expired_kat_non_sayur_no_param(self):
-        param = {
-            "event": "expired_limit ",
-            # "expired_date": "",
-        }
-
-        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_non_sayur) + "/partial",
-                                  data=param,
-                                  headers=settings.header_with_token_merchant)
-        data = response.json()
-        validate_status = data.get('success')
-        validate_message = data.get('message')['expired_date']
-
-        assert response.status_code == 422
-        assert validate_status == bool(False)
-        assert "Tanggal kadaluarsa tidak boleh kosong." in validate_message
-
-    def test_update_expired_kat_non_sayur_string(self):
-        param = {
-            "event": "expired_limit ",
-            "expired_date": "aaa",
-        }
-
-        response = requests.patch(settings.url_set_active_menu_merchant + str(settings.menu_non_sayur) + "/partial",
-                                  data=param,
-                                  headers=settings.header_with_token_merchant)
-        data = response.json()
-        validate_status = data.get('success')
-        validate_message = data.get('message')['expired_date']
-
-        assert response.status_code == 422
-        assert validate_status == bool(False)
-        assert'Tanggal kadaluarsa bukan format tanggal yang valid.' in validate_message
+        assert "Tanggal maksimal menu aktif bukan format tanggal yang valid." in validate_message

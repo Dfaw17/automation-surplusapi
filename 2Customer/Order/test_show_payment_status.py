@@ -70,12 +70,10 @@ class TestCustomerOrdersShowPaymentStatus:
 
         validate_status = show_payment.json().get('success')
         validate_message = show_payment.json().get('message')
-        validate_data = show_payment.json().get('data')
 
-        assert show_payment.status_code == 200
-        assert validate_status == bool(True)
-        assert 'Status pembayaran berhasil ditemukan' in validate_message
-        assert 'Payment not found' in validate_data
+        assert show_payment.status_code == 500
+        assert validate_status == bool(False)
+        assert 'Aduh!' in validate_message
 
     def test_show_payment_status_id_trx_empty_value(self):
         param3 = {
@@ -101,13 +99,9 @@ class TestCustomerOrdersShowPaymentStatus:
             params=param3, headers=settings.header_with_token_customer)
 
         validate_status = show_payment.json().get('success')
-        validate_message = show_payment.json().get('message')
-        validate_data = show_payment.json().get('data')
 
-        assert show_payment.status_code == 200
-        assert validate_status == bool(True)
-        assert 'Status pembayaran berhasil ditemukan' in validate_message
-        assert 'Payment not found' in validate_data
+        assert show_payment.status_code == 500
+        assert validate_status == bool(False)
 
     def test_show_payment_status_without_param_payment_methode(self):
         param3 = {

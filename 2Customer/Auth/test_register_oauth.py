@@ -16,7 +16,7 @@ class TestCustomerRegisterOauth:
         }
         response = requests.post(settings.url_register_oauth_customer, data=param, headers={"Accept": "application/json"})
         data = response.json()
-
+        print(data)
         validate_status = data.get('success')
         validate_message = data.get('message')
         validate_email = data.get('data')['email']

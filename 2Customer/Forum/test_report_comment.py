@@ -11,8 +11,8 @@ class TestCustomerReportCommentForum:
 
     def test_report_comment_forum_normal(self):
         param = {
-            'forum_id': '10',
-            'forum_komentar_id': '197',
+            'forum_id': '360',
+            'forum_komentar_id': '386',
             'forum_report_kategori_id': '1',
             'content': 'parah cuk'
         }

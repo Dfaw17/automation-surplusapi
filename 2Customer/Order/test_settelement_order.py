@@ -11,7 +11,7 @@ class TestCustomerSettlementOrder:
 
     def test_order_settlement_normal(self):
         number = settings.var_order_settlement().json().get('data')['registrasi_order_number']
-        time.sleep(3)
+        time.sleep(5)
         settlement_order = requests.post(
             settings.url_settlement_order_customer + number + '/settlement?_method=PATCH', headers=settings.header_with_token_customer)
 

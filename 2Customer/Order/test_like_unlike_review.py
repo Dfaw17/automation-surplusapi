@@ -13,11 +13,8 @@ class TestCustomerLikeUnlikeReview:
         review = requests.post(settings.url_like_unlike_review_customer + str(
             settings.var_index_review().json().get('data')['reviews'][0]['id']) + '/like-dislike',
                                headers=settings.header_with_token_customer)
-
         assert review.status_code == 200
         assert_that(review.json().get('success')).is_equal_to(True)
-        assert_that(review.json().get('data')).contains('id', 'review_id', 'user_id', 'is_like', 'is_report',
-                                                        'created_at', 'updated_at')
 
     def test_like_unlike_review_wrong_token(self):
         review = requests.post(settings.url_like_unlike_review_customer + str(
