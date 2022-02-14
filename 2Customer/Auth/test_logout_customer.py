@@ -18,7 +18,7 @@ class TestCustomerLogout:
             "Accept": "application/json"
         }
         login = requests.post(settings.url_login_email_customer, params=param, headers=headers)
-        time.sleep(3)
+        time.sleep(5)
         param2 = {
             'token': login.json().get('token')
         }

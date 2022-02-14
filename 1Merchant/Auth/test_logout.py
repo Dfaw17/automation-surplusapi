@@ -12,7 +12,7 @@ class TestLogout:
 
     def test_logout_normal(self):
         token = settings.var_login_merchant().json().get("token")
-        time.sleep(1)
+        time.sleep(5)
         param = {
             "token": token
         }
