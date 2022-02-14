@@ -26,7 +26,7 @@ class TestLogout:
 
         assert validate_status == bool(True)
         assert response.status_code == 200
-        assert validate_message == "User logged out successfullys"
+        assert validate_message == "User logged out successfully"
 
     def test_logout_wrong_token(self):
         param = {
