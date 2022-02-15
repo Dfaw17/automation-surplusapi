@@ -78,6 +78,9 @@ url_outlet_rating_merchant = f"{use_env}/api/v2/merchant/reports/outlet-rating"
 url_available_menu_merchant = f"{use_env}/api/v2/merchant/menus/available"
 url_voucher_merchant = f"{use_env}/api/v2/merchant/voucher"
 url_get_voucher_central_merchant = f"{use_env}/api/v2/merchant/voucher-central"
+url_bulk_set_active = f"{use_env}/api/v3/merchant/bulk-menus/activate"
+url_bulk_set_inactive = f"{use_env}/api/v3/merchant/bulk-menus/inactivate"
+url_bulk_delete = f"{use_env}/api/v2/merchant/bulk-menus/delete"
 
 # ACCOUNT CUSTOMER
 fake_email = fake.email()
