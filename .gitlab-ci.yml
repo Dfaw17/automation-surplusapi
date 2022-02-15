@@ -12,7 +12,11 @@ integration-test-job:
   stage: Test
   script:
     - echo "Preparing test"
-    - python -m pytest --html-report=./report/report.html -v -p no:cacheprovider --disable-pytest-warnings
+    - python -m pytest --junitxml=report.xml -v -p no:cacheprovider --disable-pytest-warnings
     - echo "Finish"
+  artifacts:
+    when: always
+    reports:
+      junit: report.xml
 
 

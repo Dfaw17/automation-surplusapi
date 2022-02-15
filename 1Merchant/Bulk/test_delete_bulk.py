@@ -6,7 +6,7 @@ from assertpy import assert_that
 sys.path.append('.../IntegrationTest')
 
 
-class TestDeleteMerchantMenu:
+class TestDeleteMerchantMenuBulk:
 
     def test_delete_bulk_menu_normal(self):
         data = {

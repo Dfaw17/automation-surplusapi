@@ -6,7 +6,7 @@ from assertpy import assert_that
 sys.path.append('.../IntegrationTest')
 
 
-class TestSetActiveMenu:
+class TestSetActiveMenuBulk:
 
     def test_set_menu_active_bulk_tomorrow_normal(self):
         param = {
