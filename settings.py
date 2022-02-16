@@ -146,6 +146,7 @@ url_cancel_order_customer = f"{use_env}/api/v2/customer/orders/"
 url_settlement_order_customer = f"{use_env}/api/v2/customer/orders/"
 url_insert_review_customer = f"{use_env}/api/v2/customer/reviews"
 url_type_report_menu = f"{use_env}/api/v2/customer/menus/report/types"
+url_create_report_menu = f"{use_env}/api/v2/customer/menus/report"
 
 
 # VARIABLE

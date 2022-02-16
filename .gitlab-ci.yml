@@ -7,7 +7,6 @@ before_script:
 stages:
   - Test
 
-
 integration-test-job:
   stage: Test
   script:
