@@ -150,6 +150,8 @@ url_create_report_menu = f"{use_env}/api/v2/customer/menus/report"
 url_my_badges = f"{use_env}/api/v2/customer/profiles/my-badge"
 url_my_points = f"{use_env}/api/v2/customer/profiles/my-point"
 url_detail_topup = f"{use_env}/api/v2/customer/topup"
+url_req_topup = f"{use_env}/api/v2/customer/topup"
+url_update_status_topup = f"{use_env}/api/v2/customer/topup?_method=PATCH"
 
 
 # VARIABLE
