@@ -22,6 +22,7 @@ class TestCreateVoucher:
         response = requests.post(settings.url_voucher_merchant, data=param, headers=settings.header_with_token_merchant)
 
         data = response.json()
+        print(data)
         validate_status = data.get('success')
         validate_message = data.get('message')
 
@@ -43,6 +44,7 @@ class TestCreateVoucher:
         response = requests.post(settings.url_voucher_merchant, data=param, headers=settings.header_with_token_merchant)
 
         data = response.json()
+        print(data)
         validate_status = data.get('success')
         validate_message = data.get('message')
 
