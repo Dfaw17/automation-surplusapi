@@ -11,7 +11,7 @@ integration-test-job:
   stage: Test
   script:
     - echo "Preparing test"
-    - python -m pytest --esend=True --euname="devops.surplus@gmail.com" --epwd="FoodLoss" --eto="dfawwaz17@gmail.com,devops.surplus@gmail.com" --esubject="Report Surplus Automation Backend" --eorg="Surplus Indonesia" --template=html1/index.html --report=Repoert/report.html  -v -p no:cacheprovider --disable-pytest-warnings -W ignore::DeprecationWarning
+    - python -m pytest -v -p no:cacheprovider --disable-pytest-warnings -W ignore::DeprecationWarning
     - echo "Finish"
   artifacts:
     when: always
