@@ -551,7 +551,6 @@ class TestCustomerSelfPickup:
             'phone_number': '081386356616',
             'is_lunchbox': '0',
             'donation_price': '2500',
-            'voucher_id': '557',
             'order_items[0][stock_id]': '',
             'order_items[0][qty]': '1',
             'order_items[0][note]': 'Note Menu',
@@ -574,7 +573,6 @@ class TestCustomerSelfPickup:
             'phone_number': '081386356616',
             'is_lunchbox': '0',
             'donation_price': '2500',
-            'voucher_id': '557',
             # 'order_items[0][stock_id]': '',
             'order_items[0][qty]': '1',
             'order_items[0][note]': 'Note Menu',
@@ -597,7 +595,6 @@ class TestCustomerSelfPickup:
             'phone_number': '081386356616',
             'is_lunchbox': '0',
             'donation_price': '2500',
-            'voucher_id': '557',
             'order_items[0][stock_id]': 'aaa',
             'order_items[0][qty]': '1',
             'order_items[0][note]': 'Note Menu',
@@ -620,7 +617,6 @@ class TestCustomerSelfPickup:
             'phone_number': '081386356616',
             'is_lunchbox': '0',
             'donation_price': '2500',
-            'voucher_id': '557',
             'order_items[0][stock_id]': '9999999',
             'order_items[0][qty]': '1',
             'order_items[0][note]': 'Note Menu',
@@ -643,7 +639,6 @@ class TestCustomerSelfPickup:
             'phone_number': '081386356616',
             'is_lunchbox': '0',
             'donation_price': '2500',
-            'voucher_id': '557',
             'order_items[0][stock_id]': settings.var_list_menu_discover().json().get('data')['nearby_menu'][0][
                 'stock_id'],
             'order_items[0][qty]': '',
@@ -667,7 +662,6 @@ class TestCustomerSelfPickup:
             'phone_number': '081386356616',
             'is_lunchbox': '0',
             'donation_price': '2500',
-            'voucher_id': '557',
             'order_items[0][stock_id]': settings.var_list_menu_discover().json().get('data')['nearby_menu'][0][
                 'stock_id'],
             'order_items[0][qty]': '',
@@ -691,7 +685,6 @@ class TestCustomerSelfPickup:
             'phone_number': '081386356616',
             'is_lunchbox': '0',
             'donation_price': '2500',
-            'voucher_id': '557',
             'order_items[0][stock_id]': settings.var_list_menu_discover().json().get('data')['nearby_menu'][0][
                 'stock_id'],
             'order_items[0][qty]': 'aaa',
@@ -715,7 +708,6 @@ class TestCustomerSelfPickup:
             'phone_number': '081386356616',
             'is_lunchbox': '0',
             'donation_price': '2500',
-            'voucher_id': '557',
             'order_items[0][stock_id]': settings.var_list_menu_discover().json().get('data')['nearby_menu'][0][
                 'stock_id'],
             'order_items[0][qty]': '-1',
@@ -739,7 +731,6 @@ class TestCustomerSelfPickup:
             'phone_number': '081386356616',
             'is_lunchbox': '0',
             'donation_price': '2500',
-            'voucher_id': '557',
             'order_items[0][stock_id]': settings.var_list_menu_discover().json().get('data')['nearby_menu'][0][
                 'stock_id'],
             'order_items[0][qty]': '999',
@@ -808,7 +799,6 @@ class TestCustomerSelfPickup:
             'phone_number': '081386356616',
             'is_lunchbox': '0',
             'donation_price': '2500',
-            'voucher_id': '557',
             'order_items[0][stock_id]': settings.var_list_menu_discover().json().get('data')['nearby_menu'][0][
                 'stock_id'],
             'order_items[0][qty]': '1',
@@ -831,7 +821,6 @@ class TestCustomerSelfPickup:
             'phone_number': '081386356616',
             'is_lunchbox': '0',
             'donation_price': '2500',
-            'voucher_id': '557',
             'order_items[0][stock_id]': settings.var_list_menu_discover().json().get('data')['nearby_menu'][0][
                 'stock_id'],
             'order_items[0][qty]': '1',
@@ -854,7 +843,6 @@ class TestCustomerSelfPickup:
             'phone_number': '081386356616',
             'is_lunchbox': '0',
             'donation_price': '2500',
-            'voucher_id': '557',
             'order_items[0][stock_id]': settings.var_list_menu_discover().json().get('data')['nearby_menu'][0][
                 'stock_id'],
             'order_items[0][qty]': '1',
