@@ -11,7 +11,7 @@ integration-test-job:
   stage: Test
   script:
     - echo "Preparing test"
-    - python -m pytest -v -p no:cacheprovider --disable-pytest-warnings -W ignore::DeprecationWarning
+    - python -m pytest --junitxml=report.xml -v -p no:cacheprovider --disable-pytest-warnings -W ignore::DeprecationWarning
     - echo "Finish"
   artifacts:
     when: always
