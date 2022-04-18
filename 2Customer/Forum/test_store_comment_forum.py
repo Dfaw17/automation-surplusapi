@@ -11,7 +11,7 @@ class TestCustomerStoreCommentForum:
 
     def test_store_comment_forum_normal(self):
         param = {
-            'post_id': '360',
+            'post_id': settings.forum_id,
             'comment': 'hahahha lol',
             'mentions[0]': 'kopiruangvirtual@gmail.com',
         }
@@ -131,7 +131,7 @@ class TestCustomerStoreCommentForum:
 
     def test_store_comment_forum_without_mentions(self):
         param = {
-            'post_id': '360',
+            'post_id': settings.forum_id,
             'comment': 'hahaha lol',
             # 'mentions[0]': 'kopiruangvirtual@gmail.com',
         }

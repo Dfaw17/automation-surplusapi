@@ -11,7 +11,7 @@ class TestCustomerOrdersDetailOrder:
 
     def test_order_detail_normal(self):
         detail_order = requests.get(
-            settings.url_detail_order_customer + settings.var_list_order_customer().json().get('data')[0][
+            settings.url_detail_order_customer + settings.var_list_order_customer().json().get('data')['data'][0][
                 'registrasi_order_number'], headers=settings.header_with_token_customer)
 
         validate_status = detail_order.json().get('success')
@@ -22,12 +22,12 @@ class TestCustomerOrdersDetailOrder:
         assert validate_status == bool(True)
         assert 'berhasil ditemukan.' in validate_message
         assert_that(validate_data).is_not_none()
-        assert validate_data['registrasi_order_number'] == settings.var_list_order_customer().json().get('data')[0][
+        assert validate_data['registrasi_order_number'] == settings.var_list_order_customer().json().get('data')['data'][0][
             'registrasi_order_number']
 
     def test_order_detail_token_empty_value(self):
         detail_order = requests.get(
-            settings.url_detail_order_customer + settings.var_list_order_customer().json().get('data')[0][
+            settings.url_detail_order_customer + settings.var_list_order_customer().json().get('data')['data'][0][
                 'registrasi_order_number'], headers=settings.header_without_token_customer)
 
         validate_status = detail_order.json().get('success')
@@ -39,7 +39,7 @@ class TestCustomerOrdersDetailOrder:
 
     def test_order_detail_token_wrong_value(self):
         detail_order = requests.get(
-            settings.url_detail_order_customer + settings.var_list_order_customer().json().get('data')[0][
+            settings.url_detail_order_customer + settings.var_list_order_customer().json().get('data')['data'][0][
                 'registrasi_order_number'], headers=settings.header_wrong_token_customer)
 
         validate_status = detail_order.json().get('success')

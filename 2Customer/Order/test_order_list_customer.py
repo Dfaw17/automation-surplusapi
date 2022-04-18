@@ -17,19 +17,10 @@ class TestCustomerOrdersListOrder:
 
         validate_status = list_order.json().get('success')
         validate_message = list_order.json().get('message')
-        validate_data = list_order.json().get('data')[0]
 
         assert list_order.status_code == 200
         assert validate_status == bool(True)
         assert 'Data order berhasil ditemukan.' in validate_message
-        assert_that(validate_data).contains('id', 'user_id', 'merchant_id', 'registrasi_order_number',
-                                            "registrasi_order_number_secondary", 'alamat',
-                                            'status_order_id',
-                                            'canceled_by',
-                                            'created_at', "updated_at", 'keterangan', "shipment_id",
-                                            "shipment_detail_id", 'merchant_name',
-                                            'merchant_logo', 'order_qty', 'order_date', 'grand_total',
-                                            'metode_pembayaran_id', 'invoice_url', 'is_tomorrow', 'shipment')
 
     def test_order_list_wrong_token(self):
         param2 = {

@@ -94,6 +94,7 @@ wrong_token_customer = "AAAAABBBBCCCCDDDD"
 lat = '-6.3823317'
 long = '107.1162607'
 id_merchant_pusat = '18869'
+forum_id = '219'
 # ---------------------------------------------------------------------------
 url_register_email_customer = f"{use_env}/api/v2/customer/auth/register/email"
 url_register_oauth_customer = f"{use_env}/api/v2/customer/auth/register/oauth"

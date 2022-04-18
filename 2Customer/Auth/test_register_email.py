@@ -110,9 +110,8 @@ class TestCustomerRegisterEmail:
         validate_status = data.get('success')
         validate_message = data.get('message')
 
-        assert response.status_code == 500
+        assert response.status_code == 404
         assert validate_status == bool(False)
-        assert 'Aduh!' in validate_message
 
     def test_register_with_email_password_empty_value(self):
         param = {

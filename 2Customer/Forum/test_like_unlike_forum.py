@@ -11,7 +11,7 @@ class TestCustomerLikeUnlikeForum:
 
     def test_like_unlike_forum_normal(self):
         param = {
-            'id': '360',
+            'id': settings.forum_id,
             'event': 'forum'
         }
         like_unlike = requests.post(settings.url_like_unlike_forum_customer,

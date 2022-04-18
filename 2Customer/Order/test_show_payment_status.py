@@ -15,7 +15,7 @@ class TestCustomerOrdersShowPaymentStatus:
         }
         show_payment = requests.get(
             settings.url_show_payment_status_customer +
-            settings.var_list_order_customer().json().get('data')[0][
+            settings.var_list_order_customer().json().get('data')['data'][0][
                 'registrasi_order_number'] + '/payment-status',
             params=param3, headers=settings.header_with_token_customer)
 
@@ -32,7 +32,7 @@ class TestCustomerOrdersShowPaymentStatus:
         }
         show_payment = requests.get(
             settings.url_show_payment_status_customer +
-            settings.var_list_order_customer().json().get('data')[0][
+            settings.var_list_order_customer().json().get('data')['data'][0][
                 'registrasi_order_number'] + '/payment-status',
             params=param3, headers=settings.header_wrong_token_customer)
 
@@ -49,7 +49,7 @@ class TestCustomerOrdersShowPaymentStatus:
         }
         show_payment = requests.get(
             settings.url_show_payment_status_customer +
-            settings.var_list_order_customer().json().get('data')[0][
+            settings.var_list_order_customer().json().get('data')['data'][0][
                 'registrasi_order_number'] + '/payment-status',
             params=param3, headers=settings.header_without_token_customer)
 
@@ -109,7 +109,7 @@ class TestCustomerOrdersShowPaymentStatus:
         }
         show_payment = requests.get(
             settings.url_show_payment_status_customer +
-            settings.var_list_order_customer().json().get('data')[0][
+            settings.var_list_order_customer().json().get('data')['data'][0][
                 'registrasi_order_number'] + '/payment-status',
             params=param3, headers=settings.header_with_token_customer)
 
@@ -126,7 +126,7 @@ class TestCustomerOrdersShowPaymentStatus:
         }
         show_payment = requests.get(
             settings.url_show_payment_status_customer +
-            settings.var_list_order_customer().json().get('data')[0][
+            settings.var_list_order_customer().json().get('data')['data'][0][
                 'registrasi_order_number'] + '/payment-status',
             params=param3, headers=settings.header_with_token_customer)
 
@@ -143,7 +143,7 @@ class TestCustomerOrdersShowPaymentStatus:
         }
         show_payment = requests.get(
             settings.url_show_payment_status_customer +
-            settings.var_list_order_customer().json().get('data')[0][
+            settings.var_list_order_customer().json().get('data')['data'][0][
                 'registrasi_order_number'] + '/payment-status',
             params=param3, headers=settings.header_with_token_customer)
 
