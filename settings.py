@@ -13,19 +13,19 @@ fake = Faker()
 #     password="rahasia0502",
 #     database="ebdb"
 # )
-mydb = mysql.connector.connect(
-    host="surplus-db-staging.clslftpx6d63.ap-southeast-1.rds.amazonaws.com",
-    user="admin",
-    password="cosmos2020",
-    database="ebdb"
-)
-query = mydb.cursor()
+# mydb = mysql.connector.connect(
+#     host="surplus-db-staging.clslftpx6d63.ap-southeast-1.rds.amazonaws.com",
+#     user="admin",
+#     password="cosmos2020",
+#     database="ebdb"
+# )
+# query = mydb.cursor()
 
 # ENVIRONTMENT
 production = "https://adminsurplus.net"
 stagging = "https://staging.adminsurplus.net"
 sandbox = "https://sandbox.adminsurplus.net"
-use_env = stagging
+use_env = sandbox
 
 # ACCOUNT MERCHANT
 email_merchant = "jangandipakai1@gmail.com"
@@ -214,12 +214,12 @@ def var_list_address_customer():
     return address
 
 
-def var_reject_verify_merchant():
-    query.execute('SELECT `id` FROM verify_requests where merchant_id = 18869 ORDER BY id DESC LIMIT 1')
-    id = int(query.fetchone()[0])
-    query.execute(f'UPDATE verify_requests SET status_verify_request_id=2 WHERE id={id}')
-    mydb.commit()
-    print(query.rowcount, "record(s) affected")
+# def var_reject_verify_merchant():
+#     query.execute('SELECT `id` FROM verify_requests where merchant_id = 18869 ORDER BY id DESC LIMIT 1')
+#     id = int(query.fetchone()[0])
+#     query.execute(f'UPDATE verify_requests SET status_verify_request_id=2 WHERE id={id}')
+#     mydb.commit()
+#     print(query.rowcount, "record(s) affected")
 
 
 def var_deleted_menu():
